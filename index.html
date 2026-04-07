@@ -3,238 +3,149 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mochila Escolar Digital</title>
+  <title>Mochila Digital</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
   <style>
-    /* Reset básico */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
 
     body {
-      background: #f4f6f9;
-      color: #333;
+      display: flex;
+      height: 100vh;
+      background: #eef2f7;
     }
 
-    /* Menu */
-    header {
-      background: #4a90e2;
+    /* MENU LATERAL */
+    .sidebar {
+      width: 250px;
+      background: #2c3e50;
       color: white;
-      padding: 15px;
-      text-align: center;
-    }
-
-    nav {
-      margin-top: 10px;
-    }
-
-    nav a {
-      color: white;
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    /* Container */
-    .container {
       padding: 20px;
     }
 
-    h2 {
+    .sidebar h2 {
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+
+    .sidebar button {
+      width: 100%;
+      padding: 10px;
       margin-bottom: 10px;
-      color: #4a90e2;
+      border: none;
+      background: #34495e;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
     }
 
-    /* Cards */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
+    .sidebar button:hover {
+      background: #4a90e2;
     }
 
-    .card {
-      background: white;
+    /* CONTEÚDO */
+    .content {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .content h1 {
+      margin-bottom: 15px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 80vh;
       padding: 15px;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid #ccc;
+      resize: none;
+      font-size: 14px;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    }
-
-    .card h3 {
+    .topbar {
+      display: flex;
+      justify-content: space-between;
       margin-bottom: 10px;
     }
 
-    ul {
-      list-style: none;
+    .topbar button {
+      padding: 8px 15px;
+      border: none;
+      background: #4a90e2;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
     }
 
-    ul li {
-      padding: 5px 0;
-    }
-
-    /* Mochila (visual simples) */
-    .mochila {
-      text-align: center;
-      margin: 20px 0;
-      font-size: 60px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 15px;
-      margin-top: 20px;
-      background: #ddd;
+    .topbar button:hover {
+      opacity: 0.8;
     }
   </style>
 </head>
 <body>
 
-  <!-- Cabeçalho -->
-  <header>
-    <h1>🎒 Mochila Escolar Digital</h1>
-    <nav>
-      <a href="#medio">Ensino Médio</a>
-      <a href="#info">Informática</a>
-    </nav>
-  </header>
+  <!-- MENU LATERAL -->
+  <div class="sidebar">
+    <h2>📚 Matérias</h2>
 
-  <div class="container">
+    <button onclick="abrirMateria('Matemática')">Matemática</button>
+    <button onclick="abrirMateria('Português')">Português</button>
+    <button onclick="abrirMateria('História')">História</button>
+    <button onclick="abrirMateria('Geografia')">Geografia</button>
+    <button onclick="abrirMateria('Biologia')">Biologia</button>
+    <button onclick="abrirMateria('Química')">Química</button>
+    <button onclick="abrirMateria('Física')">Física</button>
 
-    <!-- Mochila visual -->
-    <div class="mochila">🎒</div>
+    <h2 style="margin-top:20px;">💻 Informática</h2>
 
-    <!-- Ensino Médio -->
-    <section id="medio">
-      <h2>Matérias do Ensino Médio</h2>
-      <div class="grid">
+    <button onclick="abrirMateria('HTML')">HTML</button>
+    <button onclick="abrirMateria('CSS')">CSS</button>
+    <button onclick="abrirMateria('POO Java')">POO Java</button>
+    <button onclick="abrirMateria('Lógica')">Lógica</button>
+  </div>
 
-        <div class="card">
-          <h3>Matemática</h3>
-          <ul>
-            <li>Equações</li>
-            <li>Geometria</li>
-            <li>Funções</li>
-          </ul>
-        </div>
+  <!-- ÁREA DE CONTEÚDO -->
+  <div class="content">
 
-        <div class="card">
-          <h3>Português</h3>
-          <ul>
-            <li>Gramática</li>
-            <li>Redação</li>
-            <li>Literatura</li>
-          </ul>
-        </div>
+    <div class="topbar">
+      <h1 id="titulo">Selecione uma matéria</h1>
+      <button onclick="salvar()">💾 Salvar</button>
+    </div>
 
-        <div class="card">
-          <h3>História</h3>
-          <ul>
-            <li>Brasil</li>
-            <li>Geral</li>
-            <li>Guerras</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Geografia</h3>
-          <ul>
-            <li>Mapas</li>
-            <li>Clima</li>
-            <li>População</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Biologia</h3>
-          <ul>
-            <li>Células</li>
-            <li>Genética</li>
-            <li>Ecologia</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Química</h3>
-          <ul>
-            <li>Reações</li>
-            <li>Tabela Periódica</li>
-            <li>Soluções</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Física</h3>
-          <ul>
-            <li>Cinemática</li>
-            <li>Energia</li>
-            <li>Força</li>
-          </ul>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Informática -->
-    <section id="info" style="margin-top: 30px;">
-      <h2>Curso de Informática</h2>
-      <div class="grid">
-
-        <div class="card">
-          <h3>HTML</h3>
-          <ul>
-            <li>Tags</li>
-            <li>Estrutura</li>
-            <li>Formulários</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>CSS</h3>
-          <ul>
-            <li>Estilos</li>
-            <li>Flexbox</li>
-            <li>Grid</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>poojava</h3>
-          <ul>
-            <li>Variáveis</li>
-            <li>Funções</li>
-            <li>Eventos</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Lógica de Programação</h3>
-          <ul>
-            <li>Algoritmos</li>
-            <li>Condições</li>
-            <li>Loops</li>
-          </ul>
-        </div>
-
-      </div>
-    </section>
+    <textarea id="editor" placeholder="Escreva seus conteúdos aqui..."></textarea>
 
   </div>
 
-  <footer>
-    <p>Projeto para GitHub Pages</p>
-  </footer>
+  <script>
+    let materiaAtual = "";
+
+    function abrirMateria(nome) {
+      materiaAtual = nome;
+      document.getElementById("titulo").innerText = nome;
+
+      let conteudo = localStorage.getItem(nome);
+      document.getElementById("editor").value = conteudo ? conteudo : "";
+    }
+
+    function salvar() {
+      if (materiaAtual === "") {
+        alert("Selecione uma matéria primeiro!");
+        return;
+      }
+
+      let texto = document.getElementById("editor").value;
+      localStorage.setItem(materiaAtual, texto);
+      alert("Conteúdo salvo com sucesso!");
+    }
+  </script>
 
 </body>
 </html>
