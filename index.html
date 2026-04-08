@@ -1,91 +1,128 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mochila Digital PRO</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mochila Digital ARCADE</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
 
-    body { display:flex; height:100vh; background:#eef2f7; }
+body {
+  display:flex;
+  height:100vh;
+  background:#0f172a;
+  color:white;
+}
 
-    .sidebar {
-      width:260px;
-      background:#1e2a38;
-      color:white;
-      padding:20px;
-      display:flex;
-      flex-direction:column;
-    }
+/* SIDEBAR */
+.sidebar {
+  width:260px;
+  background:#020617;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  border-right:2px solid #38bdf8;
+}
 
-    .sidebar h2 { margin-bottom:10px; font-size:16px; opacity:0.8; }
+.sidebar h2 { margin-bottom:10px; font-size:14px; color:#38bdf8; }
 
-    .sidebar input {
-      padding:8px;
-      border:none;
-      border-radius:6px;
-      margin-bottom:15px;
-    }
+.sidebar input {
+  padding:8px;
+  border:none;
+  border-radius:6px;
+  margin-bottom:15px;
+  background:#0f172a;
+  color:white;
+}
 
-    .sidebar button {
-      padding:10px;
-      margin-bottom:8px;
-      border:none;
-      background:#2c3e50;
-      color:white;
-      border-radius:8px;
-      cursor:pointer;
-      transition:0.2s;
-    }
+.sidebar button {
+  padding:10px;
+  margin-bottom:8px;
+  border:none;
+  background:#1e293b;
+  color:white;
+  border-radius:8px;
+  cursor:pointer;
+  transition:0.2s;
+}
 
-    .sidebar button:hover { background:#4a90e2; }
+.sidebar button:hover {
+  background:#38bdf8;
+  transform:scale(1.05);
+}
 
-    .content {
-      flex:1;
-      display:flex;
-      flex-direction:column;
-      padding:20px;
-    }
+/* CONTENT */
+.content {
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  padding:20px;
+}
 
-    .topbar {
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-bottom:10px;
-    }
+.topbar {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:10px;
+}
 
-    .topbar h1 { font-size:22px; }
+.actions button {
+  margin-left:10px;
+  padding:8px 12px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  background:#38bdf8;
+  color:black;
+  font-weight:bold;
+}
 
-    .actions button {
-      margin-left:10px;
-      padding:8px 12px;
-      border:none;
-      border-radius:8px;
-      cursor:pointer;
-      background:#4a90e2;
-      color:white;
-    }
+.actions button:hover {
+  transform:scale(1.1);
+}
 
-    .actions button:hover { opacity:0.8; }
+/* EDITOR */
+textarea {
+  flex:1;
+  padding:15px;
+  border-radius:10px;
+  border:none;
+  resize:none;
+  font-size:14px;
+  background:#020617;
+  color:#38bdf8;
+}
 
-    textarea {
-      flex:1;
-      padding:15px;
-      border-radius:10px;
-      border:1px solid #ccc;
-      resize:none;
-      font-size:14px;
-    }
+/* DARK MODE */
+.dark { background:#121212; }
+.dark textarea { background:#1e1e1e; color:white; }
 
-    .dark { background:#121212; color:white; }
-    .dark textarea { background:#1e1e1e; color:white; border:1px solid #555; }
-  </style>
+/* BOTÃO EXTRA */
+.btn-extra {
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  padding:12px;
+  background:#38bdf8;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+</style>
 </head>
+
 <body>
+
+<!-- SONS -->
+<audio id="clickSound" src="click.mp3"></audio>
+<audio id="selectSound" src="select.mp3"></audio>
+<audio id="saveSound" src="save.mp3"></audio>
+<audio id="music" src="music.mp3" loop></audio>
 
 <div class="sidebar">
   <h2>🔍 Buscar</h2>
@@ -99,6 +136,7 @@
 
   <div class="topbar">
     <h1 id="titulo">Selecione uma matéria</h1>
+
     <div class="actions">
       <button onclick="novo()">➕ Novo</button>
       <button onclick="salvar()">💾 Salvar</button>
@@ -111,72 +149,122 @@
 
 </div>
 
+<!-- BOTÃO EXTRA CORRIGIDO -->
+<a href="aula.html">
+  <button class="btn-extra" onclick="playClick()">S.O JOÃO</button>
+</a>
+
 <script>
-  let materias = [
-    "Matemática","Português","História","Geografia","Biologia","Química","Física",
-    "HTML","CSS","POO Java","Lógica"
-  ];
 
-  let materiaAtual = "";
+let materias = [
+"Matemática","Português","História","Geografia","Biologia","Química","Física",
+"HTML","CSS","POO Java","Lógica"
+];
 
-  function carregarLista() {
-    let lista = document.getElementById("listaMaterias");
-    lista.innerHTML = "";
+let materiaAtual = "";
 
-    materias.forEach(m => {
-      let btn = document.createElement("button");
-      btn.innerText = m;
-      btn.onclick = () => abrirMateria(m);
-      lista.appendChild(btn);
-    });
-  }
+/* SONS */
+function playClick() {
+  document.getElementById("clickSound").play();
+}
 
-  function abrirMateria(nome) {
-    materiaAtual = nome;
-    document.getElementById("titulo").innerText = nome;
+function playSelect() {
+  document.getElementById("selectSound").play();
+}
 
-    let conteudo = localStorage.getItem(nome);
-    document.getElementById("editor").value = conteudo || "";
-  }
+function playSave() {
+  document.getElementById("saveSound").play();
+}
 
-  function salvar() {
-    if (!materiaAtual) return alert("Escolha uma matéria!");
-    localStorage.setItem(materiaAtual, document.getElementById("editor").value);
-    alert("Salvo!");
-  }
-
-  function novo() {
-    let nome = prompt("Nome da nova matéria:");
-    if (nome) {
-      materias.push(nome);
-      carregarLista();
-    }
-  }
-
-  function exportar() {
-    let texto = document.getElementById("editor").value;
-    let blob = new Blob([texto], { type: "text/plain" });
-    let a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = materiaAtual + ".txt";
-    a.click();
-  }
-
-  function filtrar(valor) {
-    let botoes = document.querySelectorAll(".sidebar button");
-    botoes.forEach(btn => {
-      btn.style.display = btn.innerText.toLowerCase().includes(valor.toLowerCase()) ? "block" : "none";
-    });
-  }
-
-  function modoEscuro() {
-    document.body.classList.toggle("dark");
-  }
-
+/* MÚSICA AUTOMÁTICA */
+window.onload = () => {
   carregarLista();
+  let music = document.getElementById("music");
+  music.volume = 0.3;
+
+  // necessário clique para liberar som em alguns navegadores
+  document.body.addEventListener("click", () => {
+    music.play();
+  }, { once:true });
+};
+
+/* LISTA */
+function carregarLista() {
+  let lista = document.getElementById("listaMaterias");
+  lista.innerHTML = "";
+
+  materias.forEach(m => {
+    let btn = document.createElement("button");
+    btn.innerText = m;
+
+    btn.onclick = () => {
+      playSelect();
+      abrirMateria(m);
+    };
+
+    lista.appendChild(btn);
+  });
+}
+
+/* ABRIR */
+function abrirMateria(nome) {
+  materiaAtual = nome;
+  document.getElementById("titulo").innerText = nome;
+
+  let conteudo = localStorage.getItem(nome);
+  document.getElementById("editor").value = conteudo || "";
+}
+
+/* SALVAR */
+function salvar() {
+  if (!materiaAtual) return alert("Escolha uma matéria!");
+
+  localStorage.setItem(materiaAtual, document.getElementById("editor").value);
+  playSave();
+
+  alert("💾 Salvo com sucesso!");
+}
+
+/* NOVO */
+function novo() {
+  playClick();
+
+  let nome = prompt("Nome da nova matéria:");
+  if (nome) {
+    materias.push(nome);
+    carregarLista();
+  }
+}
+
+/* EXPORTAR */
+function exportar() {
+  playClick();
+
+  let texto = document.getElementById("editor").value;
+  let blob = new Blob([texto], { type: "text/plain" });
+
+  let a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = materiaAtual + ".txt";
+  a.click();
+}
+
+/* FILTRO */
+function filtrar(valor) {
+  let botoes = document.querySelectorAll(".sidebar button");
+
+  botoes.forEach(btn => {
+    btn.style.display = btn.innerText.toLowerCase().includes(valor.toLowerCase()) ? "block" : "none";
+  });
+}
+
+/* DARK MODE */
+function modoEscuro() {
+  playClick();
+  document.body.classList.toggle("dark");
+}
+
 </script>
 
 </body>
-  </body>
-  <a href="aula.html"> <button class="btn"> S.O.JOÂO <button/> </a>
 </html>
