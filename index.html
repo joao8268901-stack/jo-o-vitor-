@@ -1,223 +1,232 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mochila Digital PRO</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mochila Arcade</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
 
-    body { display:flex; height:100vh; background:#eef2f7; }
+body {
+  display:flex;
+  height:100vh;
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  color:white;
+}
 
-    .sidebar {
-      width:260px;
-      background:#1e2a38;
-      color:white;
-      padding:20px;
-      display:flex;
-      flex-direction:column;
-    }
+/* SIDEBAR */
+.sidebar {
+  width:260px;
+  background:#000;
+  padding:20px;
+  box-shadow:0 0 20px #00f7ff;
+}
 
-    .sidebar h2 { margin-bottom:10px; font-size:16px; opacity:0.8; }
+.sidebar h2 { margin-bottom:10px; }
 
-    .sidebar input {
-      padding:8px;
-      border:none;
-      border-radius:6px;
-      margin-bottom:15px;
-    }
+.sidebar input {
+  width:100%;
+  padding:8px;
+  border-radius:6px;
+  border:none;
+  margin-bottom:10px;
+}
 
-    .sidebar button {
-      padding:10px;
-      margin-bottom:8px;
-      border:none;
-      background:#2c3e50;
-      color:white;
-      border-radius:8px;
-      cursor:pointer;
-      transition:0.2s;
-    }
+.sidebar button {
+  width:100%;
+  padding:10px;
+  margin-bottom:8px;
+  border:none;
+  border-radius:8px;
+  background:#111;
+  color:#0ff;
+  cursor:pointer;
+  transition:0.2s;
+}
 
-    .sidebar button:hover { background:#4a90e2; }
+.sidebar button:hover {
+  background:#0ff;
+  color:#000;
+  transform:scale(1.05);
+  box-shadow:0 0 10px #0ff;
+}
 
-    .btn-extra {
-      background:#16a085;
-      margin-top:10px;
-    }
+/* CONTEÚDO */
+.content {
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  padding:20px;
+}
 
-    .btn-extra:hover {
-      background:#1abc9c;
-    }
+.topbar {
+  display:flex;
+  justify-content:space-between;
+}
 
-    .content {
-      flex:1;
-      display:flex;
-      flex-direction:column;
-      padding:20px;
-    }
+.actions button {
+  background:#ff0055;
+  color:white;
+  border:none;
+  padding:8px 12px;
+  margin-left:10px;
+  border-radius:8px;
+  cursor:pointer;
+}
 
-    .topbar {
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-bottom:10px;
-    }
+.actions button:hover {
+  transform:scale(1.1);
+  box-shadow:0 0 10px #ff0055;
+}
 
-    .topbar h1 { font-size:22px; }
+/* EDITOR */
+textarea {
+  flex:1;
+  margin-top:10px;
+  border-radius:10px;
+  padding:15px;
+  background:#111;
+  color:#0f0;
+  border:1px solid #0ff;
+}
 
-    .actions button {
-      margin-left:10px;
-      padding:8px 12px;
-      border:none;
-      border-radius:8px;
-      cursor:pointer;
-      background:#4a90e2;
-      color:white;
-    }
+/* TELA FIGHT */
+#fightScreen {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:black;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:60px;
+  color:#ff0000;
+  z-index:999;
+  animation:sumir 2s forwards;
+}
 
-    .actions button:hover { opacity:0.8; }
-
-    textarea {
-      flex:1;
-      padding:15px;
-      border-radius:10px;
-      border:1px solid #ccc;
-      resize:none;
-      font-size:14px;
-    }
-
-    .dark { background:#121212; color:white; }
-    .dark textarea { background:#1e1e1e; color:white; border:1px solid #555; }
-  </style>
+@keyframes sumir {
+  0% {opacity:1;}
+  100% {opacity:0; visibility:hidden;}
+}
+</style>
 </head>
 
 <body>
 
+<div id="fightScreen">FIGHT!</div>
+
 <div class="sidebar">
   <h2>🔍 Buscar</h2>
-  <input type="text" placeholder="Pesquisar..." onkeyup="filtrar(this.value)">
+  <input type="text" onkeyup="filtrar(this.value)">
 
   <h2>📚 Matérias</h2>
   <div id="listaMaterias"></div>
-
-  <h2>🚀 Acesso rápido</h2>
-  <a href="aula.html">
-    <button class="btn-extra">📘 S.O. JOÃO</button>
-  </a>
 </div>
 
 <div class="content">
 
   <div class="topbar">
-    <h1 id="titulo">Selecione uma matéria</h1>
+    <h1 id="titulo">Escolha sua batalha</h1>
     <div class="actions">
-      <button onclick="novo()">➕ Novo</button>
-      <button onclick="salvar()">💾 Salvar</button>
-      <button onclick="exportar()">📄 Exportar</button>
-      <button onclick="modoEscuro()">🌙</button>
+      <button onclick="novo()">➕</button>
+      <button onclick="salvar()">💾</button>
+      <button onclick="exportar()">📄</button>
     </div>
   </div>
 
-  <textarea id="editor" placeholder="Escreva seus conteúdos..."></textarea>
+  <textarea id="editor"></textarea>
 
 </div>
 
-<!-- 🔊 ÁUDIOS -->
-<audio id="clickSound" src="click.mp3" preload="auto"></audio>
-<audio id="selectSound" src="select.mp3" preload="auto"></audio>
-<audio id="saveSound" src="save.mp3" preload="auto"></audio>
+<!-- 🔊 SONS -->
+<audio id="clickSound" src="click.mp3"></audio>
+<audio id="selectSound" src="select.mp3"></audio>
+<audio id="saveSound" src="save.mp3"></audio>
+<audio id="bgMusic" src="music.mp3" loop></audio>
 
 <script>
-  let materias = [
-    "Matemática","Português","História","Geografia","Biologia","Química","Física",
-    "HTML","CSS","POO Java","Lógica"
-  ];
+let materias = ["Matemática","Português","História","HTML","CSS"];
+let materiaAtual = "";
 
-  let materiaAtual = "";
-
-  function playSound(id) {
-    const sound = document.getElementById(id);
-    if (sound) {
-      sound.currentTime = 0;
-      sound.play().catch(() => {});
-    }
+// tocar som
+function playSound(id){
+  let s = document.getElementById(id);
+  if(s){
+    s.currentTime = 0;
+    s.play().catch(()=>{});
   }
+}
 
-  // 🔓 Desbloqueia áudio no primeiro clique
-  document.body.addEventListener("click", () => {
-    document.getElementById("clickSound").play().catch(()=>{});
-  }, { once: true });
+// desbloquear áudio + música
+document.body.addEventListener("click", ()=>{
+  document.getElementById("bgMusic").play().catch(()=>{});
+}, {once:true});
 
-  // 🔊 Som em todos os botões
-  document.addEventListener("click", function(e) {
-    if (e.target.tagName === "BUTTON") {
-      playSound("clickSound");
-    }
+// clique geral
+document.addEventListener("click", e=>{
+  if(e.target.tagName==="BUTTON"){
+    playSound("clickSound");
+  }
+});
+
+function carregarLista(){
+  let lista = document.getElementById("listaMaterias");
+  lista.innerHTML="";
+  materias.forEach(m=>{
+    let b = document.createElement("button");
+    b.innerText=m;
+    b.onclick=()=>abrirMateria(m);
+    lista.appendChild(b);
   });
+}
 
-  function carregarLista() {
-    let lista = document.getElementById("listaMaterias");
-    lista.innerHTML = "";
+function abrirMateria(nome){
+  playSound("selectSound");
 
-    materias.forEach(m => {
-      let btn = document.createElement("button");
-      btn.innerText = m;
-      btn.onclick = () => abrirMateria(m);
-      lista.appendChild(btn);
-    });
+  materiaAtual=nome;
+  document.getElementById("titulo").innerText=nome;
+
+  let c = localStorage.getItem(nome);
+  document.getElementById("editor").value = c || "";
+}
+
+function salvar(){
+  if(!materiaAtual) return alert("Escolha uma matéria!");
+  localStorage.setItem(materiaAtual, editor.value);
+
+  playSound("saveSound");
+  alert("SALVO ✔");
+}
+
+function novo(){
+  let n = prompt("Nova matéria:");
+  if(n){
+    materias.push(n);
+    carregarLista();
   }
+}
 
-  function abrirMateria(nome) {
-    playSound("selectSound");
+function exportar(){
+  let blob = new Blob([editor.value]);
+  let a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = materiaAtual + ".txt";
+  a.click();
+}
 
-    materiaAtual = nome;
-    document.getElementById("titulo").innerText = nome;
+function filtrar(v){
+  document.querySelectorAll(".sidebar button").forEach(b=>{
+    b.style.display = b.innerText.toLowerCase().includes(v.toLowerCase()) ? "block":"none";
+  });
+}
 
-    let conteudo = localStorage.getItem(nome);
-    document.getElementById("editor").value = conteudo || "";
-  }
-
-  function salvar() {
-    if (!materiaAtual) return alert("Escolha uma matéria!");
-
-    localStorage.setItem(materiaAtual, document.getElementById("editor").value);
-
-    playSound("saveSound");
-    alert("Salvo!");
-  }
-
-  function novo() {
-    let nome = prompt("Nome da nova matéria:");
-    if (nome) {
-      materias.push(nome);
-      carregarLista();
-    }
-  }
-
-  function exportar() {
-    let texto = document.getElementById("editor").value;
-    let blob = new Blob([texto], { type: "text/plain" });
-    let a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = materiaAtual + ".txt";
-    a.click();
-  }
-
-  function filtrar(valor) {
-    let botoes = document.querySelectorAll(".sidebar button");
-    botoes.forEach(btn => {
-      btn.style.display = btn.innerText.toLowerCase().includes(valor.toLowerCase()) ? "block" : "none";
-    });
-  }
-
-  function modoEscuro() {
-    document.body.classList.toggle("dark");
-  }
-
-  carregarLista();
+carregarLista();
 </script>
 
 </body>
