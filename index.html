@@ -43,6 +43,15 @@
 
     .sidebar button:hover { background:#4a90e2; }
 
+    .btn-extra {
+      background:#16a085;
+      margin-top:10px;
+    }
+
+    .btn-extra:hover {
+      background:#1abc9c;
+    }
+
     .content {
       flex:1;
       display:flex;
@@ -84,6 +93,7 @@
     .dark textarea { background:#1e1e1e; color:white; border:1px solid #555; }
   </style>
 </head>
+
 <body>
 
 <div class="sidebar">
@@ -92,6 +102,11 @@
 
   <h2>📚 Matérias</h2>
   <div id="listaMaterias"></div>
+
+  <h2>🚀 Acesso rápido</h2>
+  <a href="aula.html">
+    <button class="btn-extra">📘 S.O. JOÃO</button>
+  </a>
 </div>
 
 <div class="content" id="conteudo">
@@ -110,6 +125,11 @@
 
 </div>
 
+<!-- 🎧 Sons -->
+<audio id="somClick" src="click.mp3"></audio>
+<audio id="somSelect" src="select.mp3"></audio>
+<audio id="somSave" src="save.mp3"></audio>
+
 <script>
   let materias = [
     "Matemática","Português","História","Geografia","Biologia","Química","Física",
@@ -117,6 +137,16 @@
   ];
 
   let materiaAtual = "";
+
+  // Sons
+  const somClick = document.getElementById("somClick");
+  const somSelect = document.getElementById("somSelect");
+  const somSave = document.getElementById("somSave");
+
+  function tocarSom(audio) {
+    audio.currentTime = 0;
+    audio.play();
+  }
 
   function carregarLista() {
     let lista = document.getElementById("listaMaterias");
@@ -131,6 +161,8 @@
   }
 
   function abrirMateria(nome) {
+    tocarSom(somSelect);
+
     materiaAtual = nome;
     document.getElementById("titulo").innerText = nome;
 
@@ -140,7 +172,10 @@
 
   function salvar() {
     if (!materiaAtual) return alert("Escolha uma matéria!");
+
     localStorage.setItem(materiaAtual, document.getElementById("editor").value);
+
+    tocarSom(somSave);
     alert("Salvo!");
   }
 
@@ -172,10 +207,15 @@
     document.body.classList.toggle("dark");
   }
 
+  // Som em TODOS os botões
+  document.addEventListener("click", function(e) {
+    if (e.target.tagName === "BUTTON") {
+      tocarSom(somClick);
+    }
+  });
+
   carregarLista();
 </script>
 
 </body>
-  </body>
-  <a href="aula.html"> <button class="btn"> S.O.JOÂO <button/> </a>
 </html>
