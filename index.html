@@ -109,7 +109,7 @@
   </a>
 </div>
 
-<div class="content" id="conteudo">
+<div class="content">
 
   <div class="topbar">
     <h1 id="titulo">Selecione uma matéria</h1>
@@ -125,10 +125,10 @@
 
 </div>
 
-<!-- 🎧 Sons -->
-<audio id="somClick" src="click.mp3"></audio>
-<audio id="somSelect" src="select.mp3"></audio>
-<audio id="somSave" src="save.mp3"></audio>
+<!-- 🔊 ÁUDIOS -->
+<audio id="clickSound" src="click.mp3" preload="auto"></audio>
+<audio id="selectSound" src="select.mp3" preload="auto"></audio>
+<audio id="saveSound" src="save.mp3" preload="auto"></audio>
 
 <script>
   let materias = [
@@ -138,15 +138,25 @@
 
   let materiaAtual = "";
 
-  // Sons
-  const somClick = document.getElementById("somClick");
-  const somSelect = document.getElementById("somSelect");
-  const somSave = document.getElementById("somSave");
-
-  function tocarSom(audio) {
-    audio.currentTime = 0;
-    audio.play();
+  function playSound(id) {
+    const sound = document.getElementById(id);
+    if (sound) {
+      sound.currentTime = 0;
+      sound.play().catch(() => {});
+    }
   }
+
+  // 🔓 Desbloqueia áudio no primeiro clique
+  document.body.addEventListener("click", () => {
+    document.getElementById("clickSound").play().catch(()=>{});
+  }, { once: true });
+
+  // 🔊 Som em todos os botões
+  document.addEventListener("click", function(e) {
+    if (e.target.tagName === "BUTTON") {
+      playSound("clickSound");
+    }
+  });
 
   function carregarLista() {
     let lista = document.getElementById("listaMaterias");
@@ -161,7 +171,7 @@
   }
 
   function abrirMateria(nome) {
-    tocarSom(somSelect);
+    playSound("selectSound");
 
     materiaAtual = nome;
     document.getElementById("titulo").innerText = nome;
@@ -175,7 +185,7 @@
 
     localStorage.setItem(materiaAtual, document.getElementById("editor").value);
 
-    tocarSom(somSave);
+    playSound("saveSound");
     alert("Salvo!");
   }
 
@@ -206,13 +216,6 @@
   function modoEscuro() {
     document.body.classList.toggle("dark");
   }
-
-  // Som em TODOS os botões
-  document.addEventListener("click", function(e) {
-    if (e.target.tagName === "BUTTON") {
-      tocarSom(somClick);
-    }
-  });
 
   carregarLista();
 </script>
