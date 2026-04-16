@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Direitos Humanos na Escola</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #111827;
+      color: white;
+    }
+
+    header {
+      background: #22c55e;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+
+    p {
+      text-align: justify;
+      line-height: 1.6;
+    }
+
+    textarea {
+      width: 100%;
+      height: 120px;
+      border-radius: 10px;
+      border: none;
+      padding: 10px;
+      margin-top: 10px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #22c55e;
+      border: none;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #16a34a;
+    }
+
+    #comentarios p {
+      background: #1f2933;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  Direitos Humanos na Escola
+</header>
+
+<div class="container">
+
+  <h2>Relação entre professores, alunos e profissionais</h2>
+
+  <img src="https://images.unsplash.com/photo-1588072432836-e10032774350" alt="Escola">
+
+  <p>
+    Os direitos humanos dentro da escola são essenciais para garantir respeito, igualdade e
+    convivência saudável entre todas as pessoas. No ambiente escolar, professores, alunos e
+    outros profissionais precisam agir com responsabilidade, diálogo e empatia.
+  </p>
+
+  <p>
+    A relação entre professores e alunos deve ser baseada no respeito mútuo. O professor tem o
+    papel de orientar e ensinar, enquanto o aluno participa do processo de aprendizagem de forma
+    ativa. Já os outros profissionais da escola, como coordenadores e funcionários, contribuem
+    para que o ambiente seja organizado, seguro e acolhedor.
+  </p>
+
+  <p>
+    Quando os direitos humanos são respeitados, a escola se torna um espaço mais justo, onde
+    todos podem aprender e se desenvolver sem discriminação ou violência.
+  </p>
+
+  <h3>Deixe seu comentário:</h3>
+
+  <textarea id="textoComentario" placeholder="Escreva seu comentário..."></textarea>
+  <br>
+  <button onclick="adicionarComentario()">Enviar</button>
+
+  <h3>Comentários:</h3>
+  <div id="comentarios"></div>
+
+  <br>
+  <button onclick="voltar()">⬅ Voltar</button>
+
+</div>
+
+<script>
+  function adicionarComentario() {
+    let texto = document.getElementById("textoComentario").value;
+
+    if (texto.trim() === "") {
+      alert("Digite um comentário!");
+      return;
+    }
+
+    let p = document.createElement("p");
+    p.innerText = texto;
+
+    document.getElementById("comentarios").appendChild(p);
+    document.getElementById("textoComentario").value = "";
+  }
+
+  function voltar() {
+    window.history.back();
+  }
+</script>
+
+</body>
+</html>
