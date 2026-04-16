@@ -30,20 +30,35 @@
         border-radius: 15px;
         padding: 15px;
         box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        transition: transform 0.3s;
+        transition: 0.3s;
     }
 
     .card:hover {
         transform: scale(1.05);
     }
 
-    img {
-        width: 100%;
+    .img-box {
+        overflow: hidden;
         border-radius: 10px;
+    }
+
+    .img-box img {
+        width: 100%;
+        transition: 0.4s;
+    }
+
+    .img-box img:hover {
+        transform: scale(1.1);
     }
 
     h2 {
         color: #00ffcc;
+    }
+
+    .legenda {
+        font-size: 12px;
+        color: #ccc;
+        margin-top: 5px;
     }
 </style>
 </head>
@@ -56,62 +71,92 @@
 
 <div class="card">
 <h2>1. Socket do Processador</h2>
+<div class="img-box">
 <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/CPU_Socket.jpg">
-<p>Local onde o processador (CPU) é instalado, permitindo comunicação com o restante do sistema.</p>
+</div>
+<p>Local onde o processador (CPU) é instalado.</p>
+<p class="legenda">Imagem de um socket de CPU</p>
 </div>
 
 <div class="card">
 <h2>2. Chipset</h2>
+<div class="img-box">
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Motherboard_Chipset.jpg">
-<p>Controla a comunicação entre o processador, memória e outros componentes da placa-mãe.</p>
+</div>
+<p>Controla a comunicação entre os componentes.</p>
+<p class="legenda">Chipset da placa-mãe</p>
 </div>
 
 <div class="card">
-<h2>3. Slots de Memória RAM</h2>
+<h2>3. Slots de RAM</h2>
+<div class="img-box">
 <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/RAM_slots.jpg">
-<p>Espaços onde são instalados os módulos de memória RAM.</p>
+</div>
+<p>Onde são encaixadas as memórias RAM.</p>
+<p class="legenda">Slots de memória</p>
 </div>
 
 <div class="card">
-<h2>4. Slots PCI Express</h2>
+<h2>4. PCI Express</h2>
+<div class="img-box">
 <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/PCI_Express_Slots.jpg">
-<p>Utilizados para conectar placas de vídeo, som e outros dispositivos.</p>
+</div>
+<p>Para placas de vídeo e expansão.</p>
+<p class="legenda">Slots PCIe</p>
 </div>
 
 <div class="card">
-<h2>5. Conector de Energia (ATX)</h2>
+<h2>5. Conector ATX</h2>
+<div class="img-box">
 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/ATX_connector.jpg">
-<p>Responsável por fornecer energia da fonte para a placa-mãe.</p>
+</div>
+<p>Alimentação da placa-mãe.</p>
+<p class="legenda">Conector de energia</p>
 </div>
 
 <div class="card">
-<h2>6. BIOS/UEFI</h2>
+<h2>6. BIOS / UEFI</h2>
+<div class="img-box">
 <img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/BIOS_chip.jpg">
-<p>Firmware que inicializa o hardware e inicia o sistema operacional.</p>
+</div>
+<p>Inicializa o sistema.</p>
+<p class="legenda">Chip da BIOS</p>
 </div>
 
 <div class="card">
 <h2>7. Bateria CMOS</h2>
+<div class="img-box">
 <img src="https://upload.wikimedia.org/wikipedia/commons/3/32/CMOS_battery.jpg">
-<p>Armazena configurações da BIOS e mantém o relógio do sistema funcionando.</p>
+</div>
+<p>Guarda configurações do sistema.</p>
+<p class="legenda">Bateria da placa</p>
 </div>
 
 <div class="card">
-<h2>8. Conectores SATA</h2>
+<h2>8. SATA</h2>
+<div class="img-box">
 <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/SATA_ports.jpg">
-<p>Usados para conectar HDs e SSDs à placa-mãe.</p>
+</div>
+<p>Conexão de HDs e SSDs.</p>
+<p class="legenda">Portas SATA</p>
 </div>
 
 <div class="card">
-<h2>9. Painel Traseiro (I/O)</h2>
+<h2>9. Painel I/O</h2>
+<div class="img-box">
 <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Motherboard_IO_panel.jpg">
-<p>Área com portas USB, áudio, rede e vídeo para conexão externa.</p>
+</div>
+<p>Entradas externas (USB, áudio, etc).</p>
+<p class="legenda">Painel traseiro</p>
 </div>
 
 <div class="card">
-<h2>10. Dissipadores de Calor</h2>
+<h2>10. Dissipador</h2>
+<div class="img-box">
 <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Motherboard_heatsink.jpg">
-<p>Ajudam a controlar a temperatura dos componentes da placa-mãe.</p>
+</div>
+<p>Controla o calor dos componentes.</p>
+<p class="legenda">Dissipador de calor</p>
 </div>
 
 </div>
