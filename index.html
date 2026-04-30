@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MOCHILA DIGITAL ARCADE PRO MAX</title>
+<title>MOCHILA DIGITAL ARCADE ULTRA 2.0</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
@@ -19,58 +19,74 @@ body{
    display:flex;
    height:100vh;
    overflow:hidden;
-   background:linear-gradient(135deg,#020617,#0f172a,#111827);
    color:white;
-   animation:fundoRGB 10s infinite alternate;
+   background:linear-gradient(135deg,#020617,#0f172a,#111827,#000000);
+   animation:fundoMove 15s infinite alternate;
 }
 
-@keyframes fundoRGB{
+@keyframes fundoMove{
    0%{background-position:left;}
    100%{background-position:right;}
 }
 
-/* LOADING */
-#loading{
+/* LOGIN */
+#loginTela{
    position:fixed;
    width:100%;
    height:100%;
-   background:#000;
-   z-index:9999;
+   background:black;
+   z-index:99999;
    display:flex;
    justify-content:center;
    align-items:center;
    flex-direction:column;
    color:#38bdf8;
-   font-size:30px;
-   text-shadow:0 0 20px #38bdf8;
+   text-shadow:0 0 15px #38bdf8;
 }
 
-.loader{
-   width:200px;
-   height:10px;
-   background:#111;
-   margin-top:20px;
-   border-radius:20px;
-   overflow:hidden;
+#loginTela h1{
+   margin-bottom:20px;
+   font-size:35px;
 }
 
-.loader span{
-   display:block;
-   height:100%;
-   width:0%;
+#loginTela input{
+   padding:15px;
+   width:300px;
+   border:none;
+   border-radius:10px;
+   margin-bottom:15px;
+   background:#111827;
+   color:white;
+   text-align:center;
+   font-size:18px;
+}
+
+#loginTela button{
+   padding:12px 25px;
+   border:none;
+   border-radius:10px;
    background:#38bdf8;
-   box-shadow:0 0 20px #38bdf8;
-   animation:carregar 3s forwards;
+   cursor:pointer;
+   font-weight:bold;
 }
 
-@keyframes carregar{
-   to{width:100%;}
+#loginTela button:hover{
+   transform:scale(1.1);
+   box-shadow:0 0 20px #38bdf8;
+}
+
+/* PARTÍCULAS */
+canvas{
+   position:fixed;
+   top:0;
+   left:0;
+   z-index:-1;
 }
 
 /* SIDEBAR */
 .sidebar{
    width:280px;
-   background:#020617;
+   background:rgba(2,6,23,0.9);
    border-right:2px solid #38bdf8;
    padding:20px;
    overflow-y:auto;
@@ -82,13 +98,41 @@ body{
    font-size:22px;
    color:#38bdf8;
    margin-bottom:20px;
-   text-shadow:0 0 10px #38bdf8;
+}
+
+.avatar{
+   text-align:center;
+   margin-bottom:20px;
+   font-size:60px;
+}
+
+#nomeAluno{
+   text-align:center;
+   margin-bottom:15px;
+   color:#38bdf8;
+}
+
+.xpBar{
+   width:100%;
+   height:15px;
+   background:#111;
+   border-radius:20px;
+   overflow:hidden;
+   margin-bottom:20px;
+}
+
+.xpBar span{
+   display:block;
+   width:65%;
+   height:100%;
+   background:#38bdf8;
+   box-shadow:0 0 15px #38bdf8;
 }
 
 .sidebar h2{
    font-size:14px;
-   margin:15px 0 8px;
    color:#38bdf8;
+   margin:10px 0;
 }
 
 .sidebar input{
@@ -96,12 +140,11 @@ body{
    padding:10px;
    border:none;
    border-radius:8px;
-   background:#0f172a;
+   background:#111827;
    color:white;
-   outline:none;
 }
 
-.sidebar button, .atalhos a{
+.sidebar button,.atalhos a{
    width:100%;
    padding:10px;
    margin-top:8px;
@@ -110,17 +153,16 @@ body{
    background:#1e293b;
    color:white;
    cursor:pointer;
-   transition:.3s;
    text-decoration:none;
    display:block;
    text-align:center;
+   transition:.3s;
 }
 
-.sidebar button:hover, .atalhos a:hover{
+.sidebar button:hover,.atalhos a:hover{
    background:#38bdf8;
    color:black;
    transform:scale(1.05);
-   box-shadow:0 0 15px #38bdf8;
 }
 
 /* CONTENT */
@@ -134,19 +176,16 @@ body{
 .statusbar{
    display:flex;
    justify-content:space-between;
-   align-items:center;
-   background:#020617;
+   background:rgba(2,6,23,0.9);
    padding:12px 20px;
    border-radius:12px;
-   box-shadow:0 0 15px #38bdf8;
    margin-bottom:15px;
+   box-shadow:0 0 15px #38bdf8;
 }
 
-#clock{
+#clock,#contador{
    color:#38bdf8;
-   font-size:20px;
    font-weight:bold;
-   text-shadow:0 0 10px #38bdf8;
 }
 
 .topbar{
@@ -158,7 +197,6 @@ body{
 
 .topbar h1{
    color:#38bdf8;
-   text-shadow:0 0 10px #38bdf8;
 }
 
 .actions button{
@@ -168,34 +206,48 @@ body{
    border-radius:8px;
    background:#38bdf8;
    color:black;
-   font-weight:bold;
    cursor:pointer;
-   transition:.3s;
-}
-
-.actions button:hover{
-   transform:scale(1.1);
-   box-shadow:0 0 15px #38bdf8;
+   font-weight:bold;
 }
 
 textarea{
    flex:1;
-   background:#020617;
+   background:rgba(2,6,23,0.9);
    color:#38bdf8;
    border:none;
    border-radius:15px;
    padding:20px;
    resize:none;
    font-size:15px;
-   box-shadow:0 0 20px rgba(56,189,248,0.3);
 }
 
-textarea:focus{
-   outline:none;
+.painelExtra{
+   display:flex;
+   gap:15px;
+   margin-top:15px;
 }
 
-.atalhos{
-   margin-top:20px;
+.card{
+   flex:1;
+   background:rgba(2,6,23,0.9);
+   padding:15px;
+   border-radius:12px;
+   box-shadow:0 0 10px #38bdf8;
+}
+
+.card input{
+   width:100%;
+   padding:8px;
+   margin-top:8px;
+}
+
+.card button{
+   width:100%;
+   margin-top:8px;
+   padding:8px;
+   border:none;
+   background:#38bdf8;
+   cursor:pointer;
 }
 
 .notificacao{
@@ -204,28 +256,20 @@ textarea:focus{
    right:20px;
    background:#38bdf8;
    color:black;
-   padding:12px 20px;
+   padding:10px 20px;
    border-radius:10px;
    display:none;
-   font-weight:bold;
-   box-shadow:0 0 20px #38bdf8;
-}
-
-.dark{
-   background:#111;
-}
-
-.dark textarea{
-   background:#1a1a1a;
-   color:white;
 }
 </style>
 </head>
 <body>
 
-<div id="loading">
-   CARREGANDO MOCHILA DIGITAL...
-   <div class="loader"><span></span></div>
+<canvas id="particulas"></canvas>
+
+<div id="loginTela">
+   <h1>🎮 MOCHILA ULTRA LOGIN</h1>
+   <input type="text" id="userName" placeholder="Digite seu nome">
+   <button onclick="entrarSistema()">ENTRAR</button>
 </div>
 
 <!-- SONS -->
@@ -234,19 +278,23 @@ textarea:focus{
 <audio id="saveSound" src="save.mp3"></audio>
 <audio id="music" src="music.mp3" loop></audio>
 
-<div class="notificacao" id="notificacao">Salvo com sucesso!</div>
+<div class="notificacao" id="notificacao"></div>
 
 <div class="sidebar">
-   <div class="logo">🎮 MOCHILA ARCADE</div>
+   <div class="logo">🚀 MOCHILA ULTRA 2.0</div>
+   <div class="avatar">👨‍💻</div>
+   <div id="nomeAluno">Aluno</div>
 
-   <h2>🔍 Buscar Matéria</h2>
+   <div class="xpBar"><span></span></div>
+
+   <h2>🔍 Buscar</h2>
    <input type="text" placeholder="Pesquisar..." onkeyup="filtrar(this.value)">
 
    <h2>📚 Matérias</h2>
    <div id="listaMaterias"></div>
 
    <div class="atalhos">
-      <h2>🚀 Atalhos Extras</h2>
+      <h2>🚀 Atalhos</h2>
       <a href="aula.html" onclick="playClick()">💻 S.O JOÃO</a>
       <a href="direitoshumanos.html" onclick="playClick()">📘 D.H</a>
       <a href="placaM.html" onclick="playClick()">🖥 P.M</a>
@@ -256,8 +304,8 @@ textarea:focus{
 <div class="content">
 
    <div class="statusbar">
-      <div>STATUS: ONLINE</div>
       <div id="clock">00:00:00</div>
+      <div id="contador">Tempo Estudado: 0 min</div>
    </div>
 
    <div class="topbar">
@@ -267,12 +315,34 @@ textarea:focus{
          <button onclick="novo()">➕ Novo</button>
          <button onclick="salvar()">💾 Salvar</button>
          <button onclick="exportar()">📄 Exportar</button>
-         <button onclick="modoEscuro()">🌙 Modo</button>
+         <button onclick="modoEscuro()">🌙 Tema</button>
       </div>
    </div>
 
-   <textarea id="editor" placeholder="Digite seus conteúdos aqui..."></textarea>
+   <textarea id="editor" placeholder="Digite seus estudos aqui..."></textarea>
 
+   <div class="painelExtra">
+
+      <div class="card">
+         <h3>✅ Tarefas</h3>
+         <input type="text" id="tarefaInput" placeholder="Nova tarefa">
+         <button onclick="addTarefa()">Adicionar</button>
+         <div id="tarefas"></div>
+      </div>
+
+      <div class="card">
+         <h3>🧮 Calculadora</h3>
+         <input type="text" id="calc" placeholder="2+2">
+         <button onclick="calcular()">Calcular</button>
+         <div id="resultadoCalc"></div>
+      </div>
+
+      <div class="card">
+         <h3>🔒 Bloco Secreto</h3>
+         <textarea id="segredo" style="height:100px;"></textarea>
+      </div>
+
+   </div>
 </div>
 <script>
 
@@ -282,64 +352,64 @@ let materias = [
 ];
 
 let materiaAtual = "";
+let minutos = 0;
 
-/* ===========================
-   SONS
-=========================== */
-function playClick(){
-   document.getElementById("clickSound").play();
-}
-function playSelect(){
-   document.getElementById("selectSound").play();
-}
-function playSave(){
-   document.getElementById("saveSound").play();
-}
+/* ================= SONS ================= */
+function playClick(){ document.getElementById("clickSound").play(); }
+function playSelect(){ document.getElementById("selectSound").play(); }
+function playSave(){ document.getElementById("saveSound").play(); }
 
-/* ===========================
-   INICIAR SISTEMA
-=========================== */
-window.onload = function(){
+/* ================= LOGIN ================= */
+function entrarSistema(){
+   let nome = document.getElementById("userName").value;
+   if(nome=="") return alert("Digite seu nome!");
 
-   carregarLista();
-   atualizarRelogio();
-
-   setInterval(atualizarRelogio,1000);
+   document.getElementById("nomeAluno").innerText = "👨‍🎓 "+nome;
+   document.getElementById("loginTela").style.display="none";
 
    let music = document.getElementById("music");
    music.volume = 0.2;
+   music.play();
 
-   document.body.addEventListener("click",()=>{
-      music.play();
-   },{once:true});
+   mostrarNotificacao("Bem-vindo, "+nome+"!");
+}
 
-   setTimeout(()=>{
-      document.getElementById("loading").style.display="none";
-   },3000);
+/* ================= LOAD ================= */
+window.onload = function(){
+   carregarLista();
+   setInterval(atualizarRelogio,1000);
+   setInterval(contarTempo,60000);
 
-   /* salvar automático */
    setInterval(()=>{
       if(materiaAtual!=""){
          localStorage.setItem(materiaAtual,document.getElementById("editor").value);
       }
-   },5000);
+
+      localStorage.setItem("segredo",document.getElementById("segredo").value);
+   },4000);
+
+   document.getElementById("segredo").value = localStorage.getItem("segredo") || "";
+
+   iniciarParticulas();
 }
 
-/* ===========================
-   RELÓGIO
-=========================== */
+/* ================= RELÓGIO ================= */
 function atualizarRelogio(){
-   let agora = new Date();
-   let h = String(agora.getHours()).padStart(2,'0');
-   let m = String(agora.getMinutes()).padStart(2,'0');
-   let s = String(agora.getSeconds()).padStart(2,'0');
+   let a = new Date();
+   let h = String(a.getHours()).padStart(2,'0');
+   let m = String(a.getMinutes()).padStart(2,'0');
+   let s = String(a.getSeconds()).padStart(2,'0');
 
    document.getElementById("clock").innerText = h+":"+m+":"+s;
 }
 
-/* ===========================
-   CARREGAR LISTA
-=========================== */
+/* ================= CONTADOR ================= */
+function contarTempo(){
+   minutos++;
+   document.getElementById("contador").innerText = "Tempo Estudado: "+minutos+" min";
+}
+
+/* ================= MATÉRIAS ================= */
 function carregarLista(){
    let lista = document.getElementById("listaMaterias");
    lista.innerHTML="";
@@ -348,100 +418,67 @@ function carregarLista(){
       let btn = document.createElement("button");
       btn.innerText = nome;
 
-      btn.onclick = function(){
+      btn.onclick = ()=>{
          playSelect();
          abrirMateria(nome);
-      }
+      };
 
       lista.appendChild(btn);
    });
 }
 
-/* ===========================
-   ABRIR MATÉRIA
-=========================== */
 function abrirMateria(nome){
    materiaAtual = nome;
    document.getElementById("titulo").innerText = nome;
-
-   let texto = localStorage.getItem(nome);
-   document.getElementById("editor").value = texto || "";
+   document.getElementById("editor").value = localStorage.getItem(nome) || "";
 }
 
-/* ===========================
-   SALVAR
-=========================== */
 function salvar(){
-   if(materiaAtual==""){
-      alert("Escolha uma matéria primeiro!");
-      return;
-   }
-
+   if(materiaAtual=="") return alert("Escolha uma matéria!");
    localStorage.setItem(materiaAtual,document.getElementById("editor").value);
    playSave();
-   mostrarNotificacao("💾 Conteúdo salvo com sucesso!");
+   mostrarNotificacao("💾 Salvo!");
 }
 
-/* ===========================
-   NOVA MATÉRIA
-=========================== */
 function novo(){
    playClick();
-
-   let nome = prompt("Digite o nome da nova matéria:");
+   let nome = prompt("Nome da nova matéria:");
    if(nome){
       materias.push(nome);
       carregarLista();
-      mostrarNotificacao("➕ Nova matéria adicionada!");
+      mostrarNotificacao("➕ Matéria criada!");
    }
 }
 
-/* ===========================
-   EXPORTAR TXT
-=========================== */
 function exportar(){
    playClick();
+   if(materiaAtual=="") return alert("Escolha uma matéria!");
 
-   if(materiaAtual==""){
-      alert("Escolha uma matéria!");
-      return;
-   }
-
-   let texto = document.getElementById("editor").value;
-   let blob = new Blob([texto],{type:"text/plain"});
-
+   let blob = new Blob([document.getElementById("editor").value],{type:"text/plain"});
    let a = document.createElement("a");
    a.href = URL.createObjectURL(blob);
    a.download = materiaAtual+".txt";
    a.click();
 
-   mostrarNotificacao("📄 Arquivo exportado!");
+   mostrarNotificacao("📄 Exportado!");
 }
 
-/* ===========================
-   FILTRO
-=========================== */
 function filtrar(valor){
    let botoes = document.querySelectorAll("#listaMaterias button");
 
    botoes.forEach(btn=>{
-      btn.style.display = btn.innerText.toLowerCase().includes(valor.toLowerCase())
-      ? "block" : "none";
+      btn.style.display = btn.innerText.toLowerCase().includes(valor.toLowerCase()) ? "block":"none";
    });
 }
 
-/* ===========================
-   MODO ESCURO
-=========================== */
+/* ================= TEMA ================= */
 function modoEscuro(){
    playClick();
    document.body.classList.toggle("dark");
-   mostrarNotificacao("🌙 Modo alterado!");
+   mostrarNotificacao("🌙 Tema alterado!");
 }
 
-/* ===========================
-   NOTIFICAÇÃO
-=========================== */
+/* ================= NOTIFICAÇÃO ================= */
 function mostrarNotificacao(msg){
    let n = document.getElementById("notificacao");
    n.innerText = msg;
@@ -452,16 +489,147 @@ function mostrarNotificacao(msg){
    },2000);
 }
 
-/* ===========================
-   SOM AO DIGITAR
-=========================== */
-document.addEventListener("keydown",function(){
-   let som = document.getElementById("clickSound");
-   som.currentTime = 0;
-   som.play();
+/* ================= TAREFAS ================= */
+function addTarefa(){
+   let txt = document.getElementById("tarefaInput").value;
+   if(txt=="") return;
+
+   let div = document.createElement("div");
+   div.innerHTML = "✔ "+txt;
+   document.getElementById("tarefas").appendChild(div);
+
+   document.getElementById("tarefaInput").value="";
+}
+
+/* ================= CALCULADORA ================= */
+function calcular(){
+   let conta = document.getElementById("calc").value;
+
+   try{
+      document.getElementById("resultadoCalc").innerText = "Resultado: "+eval(conta);
+   }catch{
+      document.getElementById("resultadoCalc").innerText = "Conta inválida";
+   }
+}
+
+/* ================= PARTÍCULAS ================= */
+function iniciarParticulas(){
+   const canvas = document.getElementById("particulas");
+   const ctx = canvas.getContext("2d");
+
+   canvas.width = window.innerWidth;
+   canvas.height = window.innerHeight;
+
+   let particulas = [];
+
+   for(let i=0;i<100;i++){
+      particulas.push({
+         x:Math.random()*canvas.width,
+         y:Math.random()*canvas.height,
+         r:Math.random()*3,
+         d:Math.random()*2
+      });
+   }
+
+   function desenhar(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+
+      ctx.fillStyle="rgba(56,189,248,0.8)";
+      particulas.forEach(p=>{
+         ctx.beginPath();
+         ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+         ctx.fill();
+      });
+
+      mover();
+   }
+
+   let angle=0;
+   function mover(){
+      angle +=0.01;
+      particulas.forEach((p,i)=>{
+         p.y += Math.cos(angle+p.d)+1+p.r/2;
+         p.x += Math.sin(angle)*2;
+
+         if(p.x>canvas.width || p.x<0 || p.y>canvas.height){
+            particulas[i]={x:Math.random()*canvas.width,y:0,r:p.r,d:p.d};
+         }
+      });
+   }
+
+   setInterval(desenhar,33);
+}
+
+/* SOM AO DIGITAR */
+document.addEventListener("keydown",()=>{
+   let s=document.getElementById("clickSound");
+   s.currentTime=0;
+   s.play();
 });
 
-</script>
+/* ================= CALENDÁRIO ================= */
+function gerarCalendario(){
+   let hoje = new Date();
+   let dia = hoje.getDate();
+   let mes = hoje.getMonth()+1;
+   let ano = hoje.getFullYear();
 
-</body>
+   document.getElementById("calendario").innerHTML =
+   "Hoje: "+dia+"/"+mes+"/"+ano+"<br>Provas: Organize seus estudos!";
+}
+
+/* ================= TERMINAL HACKER ================= */
+let msgs = [
+"[SYSTEM] Mochila iniciada...",
+"[LOADING] Matérias carregadas...",
+"[OK] Sistema online...",
+"[USER] Bem-vindo estudante...",
+"[DATA] Salvamento automático ativo..."
+];
+
+function terminalGamer(){
+   let t = document.getElementById("terminal");
+   let i = 0;
+
+   setInterval(()=>{
+      if(i < msgs.length){
+         t.innerHTML += msgs[i]+"<br>";
+         t.scrollTop = t.scrollHeight;
+         i++;
+      }
+   },1500);
+}
+
+/* ================= XP DINÂMICO ================= */
+function subirXP(){
+   let barra = document.querySelector(".xpBar span");
+   let largura = 65;
+
+   setInterval(()=>{
+      if(largura < 100){
+         largura += 1;
+         barra.style.width = largura+"%";
+      }
+   },60000);
+}
+
+/* ================= RESET ================= */
+function resetarSistema(){
+   let conf = confirm("Deseja apagar TUDO?");
+   if(conf){
+      localStorage.clear();
+      location.reload();
+   }
+gerarCalendario();
+terminalGamer();
+subirXP();
+   window.onload = function(){
+   carregarLista();
+   setInterval(atualizarRelogio,1000);
+   setInterval(contarTempo,60000);
+   gerarCalendario();
+   terminalGamer();
+   subirXP();
+</script>
+   </body>
 </html>
