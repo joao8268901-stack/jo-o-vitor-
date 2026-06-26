@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MOCHILA DIGITAL JOÃO VITOR</title>
-
+agora mande um codigo de um botão para adicionar ao meu codigo da mochila
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
@@ -461,7 +461,34 @@ document.addEventListener("keydown",function(){
    som.play();
 });
 
-</script>.botao-drogas.html{
+</script>
+
+</body>
+</html>
+
+Você pode adicionar um botão "🛡️ Prevenção às Drogas" na seção de atalhos da sua mochila digital.
+
+Adicione este código dentro da <div class="atalhos">:
+
+<a href="prevencao-drogas.html" onclick="playClick()">🛡️ Prevenção às Drogas</a>
+
+Ficará assim:
+
+<div class="atalhos">
+   <h2>🚀 Atalhos Extras</h2>
+
+   <a href="aula.html" onclick="playClick()">💻 S.O JOÃO</a>
+   <a href="direitoshumanos.html" onclick="playClick()">📘 D.H</a>
+   <a href="placaM.html" onclick="playClick()">🖥 P.M</a>
+
+   <!-- NOVO BOTÃO -->
+   <a href="prevencao-drogas.html" onclick="playClick()">🛡️ Prevenção às Drogas</a>
+
+</div>
+
+Se quiser um botão mais destacado com efeito neon azul, adicione este CSS ao seu <style>:
+
+.botao-drogas{
    background: linear-gradient(45deg,#ef4444,#f97316);
    color:white;
    font-weight:bold;
@@ -474,7 +501,7 @@ document.addEventListener("keydown",function(){
    50%{transform:scale(1.05);}
    100%{transform:scale(1);}
 }
-
-</body>
-</html>
-
+<a href="drogas.html" class="botao-drogas" onclick="playClick()">
+🛡️ PREVENÇÃO ÀS DROGAS
+</a>
+   </body>
