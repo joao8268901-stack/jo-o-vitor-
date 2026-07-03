@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Igualdade para Todos - Combate à Discriminação Racial</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f5f5f5;
+    color:#333;
+}
+
+header{
+    background:#111;
+    color:white;
+    padding:15px 8%;
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:1.5rem;
+    font-weight:bold;
+    color:#FFD700;
+}
+
+.menu{
+    display:flex;
+    gap:20px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:white;
+    transition:.3s;
+}
+
+.menu a:hover{
+    color:#FFD700;
+}
+
+.hero{
+    height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+    url('https://images.unsplash.com/photo-1517048676732-d65bc937f952');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    padding:20px;
+}
+
+.hero-content h1{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+.hero-content p{
+    max-width:800px;
+    margin:auto;
+    font-size:1.1rem;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:12px 30px;
+    background:#FFD700;
+    color:black;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:bold;
+}
+
+section{
+    padding:90px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+    color:#222;
+    font-size:2rem;
+}
+
+.card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.timeline{
+    border-left:4px solid #FFD700;
+    padding-left:25px;
+}
+
+.timeline-item{
+    margin-bottom:35px;
+}
+
+.timeline-item h3{
+    color:#222;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:15px;
+}
+
+.testimonial{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    margin-bottom:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.chart-container{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+}
+
+.bar{
+    background:#FFD700;
+    margin:10px auto;
+    color:black;
+    font-weight:bold;
+    padding:10px;
+    border-radius:5px;
+}
+
+.curiosity{
+    background:white;
+    margin:15px 0;
+    padding:20px;
+    border-radius:10px;
+}
+
+form{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+}
+
+input, textarea{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+button{
+    background:#FFD700;
+    border:none;
+    padding:12px 25px;
+    border-radius:30px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+.social a{
+    color:#FFD700;
+    margin:0 10px;
+    text-decoration:none;
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(50px);
+    transition:1s;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+@media(max-width:768px){
+
+.menu{
+    gap:10px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.hero-content h1{
+    font-size:2rem;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+<div class="logo">Igualdade para Todos</div>
+
+<div class="menu">
+<a href="#sobre">Sobre</a>
+<a href="#exemplos">Exemplos</a>
+<a href="#direitos">Direitos</a>
+<a href="#historia">História</a>
+<a href="#galeria">Galeria</a>
+<a href="#contato">Contato</a>
+</div>
+</nav>
+</header>
+
+<section class="hero">
+<div class="hero-content">
+<h1>Combate à Discriminação Racial</h1>
+<p>
+Respeito, igualdade e inclusão são fundamentais para uma sociedade mais justa.
+Conheça a importância da luta contra o racismo e como cada pessoa pode contribuir para um mundo melhor.
+</p>
+<a href="#sobre" class="btn">Saiba Mais</a>
+</div>
+</section>
+
+<section id="sobre" class="reveal">
+<h2 class="section-title">O que é Discriminação Racial?</h2>
+
+<div class="card">
+<p>
+A discriminação racial ocorre quando uma pessoa é tratada de forma injusta devido à sua cor, etnia ou origem racial.
+Esse comportamento prejudica indivíduos e comunidades, gerando desigualdades sociais, econômicas e culturais.
+</p>
+</div>
+</section>
+
+<section id="exemplos" class="reveal">
+<h2 class="section-title">Exemplos no Cotidiano</h2>
+
+<div class="card-grid">
+<div class="card">
+<h3>Preconceito Verbal</h3>
+<p>Comentários ofensivos ou estereótipos relacionados à raça.</p>
+</div>
+
+<div class="card">
+<h3>Exclusão Social</h3>
+<p>Tratamento desigual em ambientes sociais ou profissionais.</p>
+</div>
+
+<div class="card">
+<h3>Discriminação Institucional</h3>
+<p>Práticas que dificultam oportunidades para determinados grupos.</p>
+</div>
+</div>
+</section>
+
+<section id="direitos" class="reveal">
+<h2 class="section-title">Direitos Humanos e Igualdade Racial</h2>
+
+<div class="card">
+<p>
+Todas as pessoas têm direito à dignidade, igualdade e respeito.
+As leis brasileiras proíbem a discriminação racial e garantem proteção às vítimas de racismo.
+Promover a igualdade é responsabilidade de toda a sociedade.
+</p>
+</div>
+</section>
+
+<section id="historia" class="reveal">
+<h2 class="section-title">Linha do Tempo</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<h3>1888</h3>
+<p>Abolição da escravidão no Brasil.</p>
+</div>
+
+<div class="timeline-item">
+<h3>1948</h3>
+<p>Declaração Universal dos Direitos Humanos.</p>
+</div>
+
+<div class="timeline-item">
+<h3>1988</h3>
+<p>Constituição Federal fortalece os direitos fundamentais.</p>
+</div>
+
+<div class="timeline-item">
+<h3>Atualidade</h3>
+<p>Movimentos sociais continuam promovendo igualdade e inclusão.</p>
+</div>
+
+</div>
+</section>
+
+<section id="galeria" class="reveal">
+<h2 class="section-title">Galeria</h2>
+
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac" alt="">
+<img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18" alt="">
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="">
+<img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952" alt="">
+</div>
+</section>
+
+<section class="reveal">
+<h2 class="section-title">Mensagens Inspiradoras</h2>
+
+<div class="testimonial">
+"A diversidade nos fortalece e nos torna uma sociedade mais rica e humana."
+</div>
+
+<div class="testimonial">
+"O respeito às diferenças é a base para a convivência harmoniosa."
+</div>
+
+<div class="testimonial">
+"Combater o racismo é defender a dignidade humana."
+</div>
+</section>
+
+<section class="reveal">
+<h2 class="section-title">Estatísticas Educativas</h2>
+
+<div class="chart-container">
+<p>Representação ilustrativa da percepção sobre a importância da igualdade racial.</p>
+
+<div class="bar" style="width:95%;">95% - Respeito à diversidade</div>
+<div class="bar" style="width:85%;">85% - Educação antirracista</div>
+<div class="bar" style="width:75%;">75% - Inclusão social</div>
+</div>
+</section>
+
+<section class="reveal">
+<h2 class="section-title">Curiosidades</h2>
+
+<div class="curiosity">
+A diversidade cultural brasileira é resultado da contribuição de diversos povos e etnias.
+</div>
+
+<div class="curiosity">
+O respeito às diferenças fortalece a democracia e a convivência social.
+</div>
+
+<div class="curiosity">
+Educação e informação são ferramentas fundamentais para combater preconceitos.
+</div>
+</section>
+
+<section id="contato" class="reveal">
+<h2 class="section-title">Entre em Contato</h2>
+
+<form id="formulario">
+<input type="text" placeholder="Seu Nome" required>
+
+<input type="email" placeholder="Seu E-mail" required>
+
+<textarea rows="6" placeholder="Sua Mensagem"></textarea>
+
+<button type="submit">Enviar Mensagem</button>
+</form>
+</section>
+
+<footer>
+<h3>Igualdade para Todos</h3>
+
+<p>
+Projeto educativo de conscientização sobre discriminação racial,
+igualdade e respeito às diferenças.
+</p>
+
+<div class="social">
+<a href="#">Instagram</a>
+<a href="#">Facebook</a>
+<a href="#">YouTube</a>
+</div>
+
+<p style="margin-top:15px;">
+© 2026 - Todos os direitos reservados.
+</p>
+</footer>
+
+<script>
+
+const reveals = document.querySelectorAll('.reveal');
+
+window.addEventListener('scroll', () => {
+
+reveals.forEach(element => {
+
+const top = element.getBoundingClientRect().top;
+
+if(top < window.innerHeight - 100){
+element.classList.add('active');
+}
+
+});
+
+});
+
+document.getElementById('formulario').addEventListener('submit', function(e){
+
+e.preventDefault();
+
+alert("Mensagem enviada com sucesso! Obrigado pelo contato.");
+
+this.reset();
+
+});
+
+</script>
+
+</body>
+</html>
