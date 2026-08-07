@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dia do Estudante</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg,#0f172a,#1e293b);
+    color:white;
+}
+
+header{
+    text-align:center;
+    padding:50px 20px;
+    background:rgba(0,0,0,0.3);
+}
+
+header h1{
+    font-size:3rem;
+    color:#38bdf8;
+}
+
+header p{
+    margin-top:15px;
+    font-size:1.2rem;
+}
+
+.hero{
+    text-align:center;
+    padding:60px 20px;
+}
+
+.hero h2{
+    font-size:2.5rem;
+    margin-bottom:20px;
+    color:#facc15;
+}
+
+.hero p{
+    max-width:800px;
+    margin:auto;
+    line-height:1.8;
+    font-size:1.1rem;
+}
+
+.cards{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:25px;
+    padding:50px 20px;
+}
+
+.card{
+    background:#1e293b;
+    width:300px;
+    padding:25px;
+    border-radius:15px;
+    border:2px solid #38bdf8;
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 20px #38bdf8;
+}
+
+.card h3{
+    color:#38bdf8;
+    margin-bottom:10px;
+}
+
+.mensagem{
+    text-align:center;
+    padding:60px 20px;
+    background:#0f172a;
+}
+
+.mensagem h2{
+    color:#facc15;
+    margin-bottom:20px;
+}
+
+.mensagem p{
+    max-width:900px;
+    margin:auto;
+    line-height:1.8;
+    font-size:1.1rem;
+}
+
+.botao{
+    display:inline-block;
+    margin-top:30px;
+    padding:15px 30px;
+    background:#38bdf8;
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.botao:hover{
+    background:#0ea5e9;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    background:#020617;
+    margin-top:30px;
+}
+
+@media(max-width:768px){
+    header h1{
+        font-size:2rem;
+    }
+
+    .hero h2{
+        font-size:1.8rem;
+    }
+}
+</style>
+
+</head>
+<body>
+
+<header>
+    <h1>📚 Feliz Dia do Estudante! 🎓</h1>
+    <p>11 de Agosto - Uma homenagem a todos que buscam conhecimento e constroem o futuro.</p>
+</header>
+
+<section class="hero">
+    <h2>Você é o futuro!</h2>
+    <p>
+        Ser estudante é enfrentar desafios, aprender com os erros e nunca desistir dos sonhos.
+        Cada página lida, cada atividade realizada e cada conhecimento adquirido é um passo
+        importante para construir um futuro melhor.
+    </p>
+</section>
+
+<section class="cards">
+
+    <div class="card">
+        <h3>📖 Aprender</h3>
+        <p>
+            O conhecimento transforma vidas e abre portas para novas oportunidades.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>🚀 Crescer</h3>
+        <p>
+            Cada dia de estudo representa evolução pessoal e profissional.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>🌎 Transformar</h3>
+        <p>
+            Os estudantes de hoje serão os profissionais que mudarão o mundo amanhã.
+        </p>
+    </div>
+
+</section>
+
+<section class="mensagem">
+    <h2>Mensagem Especial</h2>
+
+    <p>
+        Neste Dia do Estudante, celebramos a dedicação, a curiosidade e a força de vontade
+        de milhões de jovens que acreditam na educação como ferramenta de transformação.
+        Continue estudando, sonhando e buscando seus objetivos. O seu esforço de hoje
+        será a conquista de amanhã.
+    </p>
+
+    <a href="#" class="botao">🎉 Parabéns, Estudante!</a>
+</section>
+
+<footer>
+    <p>Desenvolvido em homenagem ao Dia do Estudante • 11 de Agosto 📚</p>
+</footer>
+
+</body>
+</html>
