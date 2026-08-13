@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistema de Monitoramento Não Inicia</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg,#0f172a,#1e293b);
+    color:#fff;
+    line-height:1.6;
+}
+
+header{
+    text-align:center;
+    padding:50px 20px;
+    background:#0f172a;
+    border-bottom:3px solid #38bdf8;
+}
+
+header h1{
+    font-size:3rem;
+    color:#38bdf8;
+}
+
+header p{
+    margin-top:10px;
+    color:#cbd5e1;
+}
+
+.container{
+    max-width:1000px;
+    margin:40px auto;
+    padding:20px;
+}
+
+.card{
+    background:#1e293b;
+    padding:25px;
+    border-radius:15px;
+    margin-bottom:25px;
+    box-shadow:0 0 15px rgba(56,189,248,0.2);
+}
+
+.card h2{
+    color:#38bdf8;
+    margin-bottom:15px;
+}
+
+ul{
+    margin-left:25px;
+}
+
+li{
+    margin-bottom:10px;
+}
+
+.destaque{
+    color:#22c55e;
+    font-weight:bold;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    background:#0f172a;
+    border-top:3px solid #38bdf8;
+    margin-top:40px;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>💻 Sistema de Monitoramento Não Inicia</h1>
+    <p>Verificações para identificar a causa do problema de inicialização.</p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2>📋 Situação</h2>
+        <p>
+            O computador exibe a mensagem:
+            <span class="destaque">"No Boot Device Found"</span>,
+            indicando que nenhum dispositivo de inicialização foi encontrado.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>🔍 Verificações em Ordem Lógica</h2>
+        <ul>
+            <li>Verificar se o computador reconhece o dispositivo de inicialização acessando a BIOS/UEFI.</li>
+            <li>Confirmar se o HD ou SSD está sendo detectado corretamente.</li>
+            <li>Verificar a ordem de inicialização (Boot Order).</li>
+            <li>Garantir que o sistema esteja tentando iniciar pelo disco correto.</li>
+            <li>Analisar o estado do HD ou SSD para identificar possíveis falhas.</li>
+            <li>Verificar se existem arquivos corrompidos ou problemas no sistema operacional.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>⚙️ BIOS/UEFI</h2>
+        <p>
+            A BIOS/UEFI é responsável por identificar os dispositivos conectados
+            ao computador antes do carregamento do sistema operacional.
+            Caso o HD ou SSD não seja reconhecido, o sistema não conseguirá iniciar.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>💾 HD ou SSD</h2>
+        <p>
+            O disco de armazenamento contém o sistema operacional.
+            Se houver defeito físico ou mau contato, o computador não encontrará
+            os arquivos necessários para a inicialização.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>🖥️ Sistema Operacional</h2>
+        <p>
+            Mesmo que o HD ou SSD esteja funcionando, arquivos corrompidos do
+            Windows podem impedir a inicialização do computador.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>✅ Conclusão</h2>
+        <p>
+            Essas verificações devem ser realizadas antes de concluir que o
+            computador está com defeito, pois muitos problemas de inicialização
+            são causados por configurações incorretas, falhas de reconhecimento
+            do HD/SSD ou erros no sistema operacional.
+        </p>
+    </div>
+
+</div>
+
+<footer>
+    <p>Desenvolvido por João Vitor • GitHub Pages</p>
+</footer>
+
+</body>
+</html>
