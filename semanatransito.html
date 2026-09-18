@@ -1,0 +1,212 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana Nacional do Trânsito</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+    color:#333;
+}
+
+header{
+    height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+    url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:4rem;
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:800px;
+    margin:auto;
+    font-size:1.2rem;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    padding:60px 0;
+}
+
+section{
+    margin-bottom:60px;
+}
+
+.titulo{
+    text-align:center;
+    color:#0f4c81;
+    margin-bottom:30px;
+    font-size:2rem;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.galeria{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+}
+
+.galeria img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:12px;
+    transition:.4s;
+}
+
+.galeria img:hover{
+    transform:scale(1.03);
+}
+
+.lista li{
+    margin:12px 0;
+}
+
+.alerta{
+    background:#fff3cd;
+    border-left:6px solid #ffc107;
+    padding:25px;
+    border-radius:10px;
+}
+
+footer{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+footer p{
+    opacity:.8;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="hero">
+        <h1>Semana Nacional do Trânsito</h1>
+        <p>
+            Educar para salvar vidas. A Semana Nacional do Trânsito promove a
+            conscientização de motoristas, motociclistas, ciclistas e pedestres
+            sobre a importância de atitudes seguras e responsáveis.
+        </p>
+    </div>
+</header>
+
+<div class="container">
+
+    <section>
+        <h2 class="titulo">O que é a Semana Nacional do Trânsito?</h2>
+
+        <div class="card">
+            <p>
+                A Semana Nacional do Trânsito é realizada anualmente entre os dias
+                18 e 25 de setembro. Seu principal objetivo é conscientizar a população
+                sobre a importância do respeito às leis de trânsito e da adoção de
+                comportamentos seguros para reduzir acidentes e preservar vidas.
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="titulo">Galeria de Imagens</h2>
+
+        <div class="galeria">
+            <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=900&q=80" alt="Trânsito">
+            <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?auto=format&fit=crop&w=900&q=80" alt="Faixa de pedestres">
+            <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=900&q=80" alt="Segurança no trânsito">
+        </div>
+    </section>
+
+    <section>
+        <h2 class="titulo">Dicas para um Trânsito Mais Seguro</h2>
+
+        <div class="card">
+            <ul class="lista">
+                <li>Use sempre o cinto de segurança.</li>
+                <li>Não utilize o celular enquanto dirige.</li>
+                <li>Respeite os limites de velocidade.</li>
+                <li>Não dirija sob efeito de álcool.</li>
+                <li>Respeite a sinalização e a faixa de pedestres.</li>
+                <li>Faça a manutenção periódica do veículo.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="titulo">Caso de Conscientização - Ricol</h2>
+
+        <div class="alerta">
+            <p>
+                O caso do Ricol é frequentemente lembrado em atividades de
+                conscientização para demonstrar como a falta de atenção,
+                o desrespeito às normas de trânsito e atitudes imprudentes
+                podem resultar em acidentes graves.
+            </p>
+
+            <br>
+
+            <p>
+                Casos como esse reforçam a necessidade de dirigir com responsabilidade,
+                respeitar a sinalização, manter a atenção constante e valorizar a vida.
+                A educação no trânsito é uma das principais ferramentas para prevenir
+                acidentes e proteger toda a sociedade.
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="titulo">Mensagem Final</h2>
+
+        <div class="card">
+            <p>
+                O trânsito seguro é responsabilidade de todos. Pequenas atitudes
+                fazem grande diferença na preservação da vida. Durante a Semana
+                Nacional do Trânsito, reflita sobre seus hábitos e contribua para
+                um trânsito mais humano, seguro e consciente.
+            </p>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <p>Semana Nacional do Trânsito 2026 • Educação, Respeito e Segurança</p>
+</footer>
+
+</body>
+</html>
+```
