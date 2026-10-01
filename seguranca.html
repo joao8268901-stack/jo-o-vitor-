@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Saúde e Segurança na Escola</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+/* ===================================
+   CONFIGURAÇÕES GERAIS
+=================================== */
+
+:root{
+    --azul:#2563eb;
+    --verde:#22c55e;
+    --branco:#ffffff;
+    --cinza:#f5f7fa;
+    --texto:#1f2937;
+    --escuro:#121212;
+    --card:#ffffff;
+}
+
+.dark-mode{
+    --branco:#121212;
+    --cinza:#1e1e1e;
+    --texto:#f3f4f6;
+    --card:#202020;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:var(--branco);
+    color:var(--texto);
+    transition:0.4s;
+}
+
+/* ===================================
+   HEADER
+=================================== */
+
+header{
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+    background:rgba(37,99,235,0.95);
+    backdrop-filter:blur(10px);
+}
+
+.navbar{
+    max-width:1300px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 20px;
+}
+
+.logo{
+    color:white;
+    font-size:1.3rem;
+    font-weight:700;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    color:#dbeafe;
+}
+
+.right-menu{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+#clock{
+    color:white;
+    font-size:14px;
+    font-weight:600;
+}
+
+.theme-btn{
+    border:none;
+    background:white;
+    color:var(--azul);
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:16px;
+    transition:0.3s;
+}
+
+.theme-btn:hover{
+    transform:rotate(180deg);
+}
+
+.menu-toggle{
+    display:none;
+    color:white;
+    font-size:26px;
+    cursor:pointer;
+}
+
+/* ===================================
+   HERO
+=================================== */
+
+.hero{
+    min-height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,0.55),
+    rgba(0,0,0,0.55)),
+    url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1600&q=80');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.hero-content{
+    max-width:900px;
+    color:white;
+}
+
+.hero-content h1{
+    font-size:4rem;
+    margin-bottom:20px;
+}
+
+.hero-content p{
+    font-size:1.2rem;
+    margin-bottom:30px;
+}
+
+.hero-btn{
+    display:inline-block;
+    padding:15px 35px;
+    background:var(--verde);
+    color:white;
+    text-decoration:none;
+    border-radius:40px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.hero-btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 20px rgba(0,0,0,.2);
+}
+
+/* ===================================
+   SEÇÕES
+=================================== */
+
+section{
+    padding:100px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-size:2.5rem;
+    color:var(--azul);
+}
+
+.section-title p{
+    margin-top:10px;
+}
+
+/* ===================================
+   CARDS
+=================================== */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:var(--card);
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card i{
+    font-size:40px;
+    color:var(--verde);
+    margin-bottom:15px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+/* ===================================
+   ANIMAÇÕES
+=================================== */
+
+.reveal{
+    opacity:0;
+    transform:translateY(40px);
+    transition:all .8s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ===================================
+   RESPONSIVO
+=================================== */
+
+@media(max-width:900px){
+
+    .nav-links{
+        position:absolute;
+        top:70px;
+        left:0;
+        width:100%;
+        background:var(--azul);
+        flex-direction:column;
+        text-align:center;
+        display:none;
+        padding:20px 0;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .hero-content h1{
+        font-size:2.6rem;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+<div class="navbar">
+
+<div class="logo">
+<i class="fa-solid fa-shield-heart"></i>
+Saúde e Segurança
+</div>
+
+<ul class="nav-links" id="navLinks">
+
+<li><a href="#inicio">Início</a></li>
+<li><a href="#saude">Saúde</a></li>
+<li><a href="#seguranca">Segurança</a></li>
+<li><a href="#dicas">Dicas</a></li>
+<li><a href="#emergencia">Emergências</a></li>
+<li><a href="#contato">Contato</a></li>
+
+</ul>
+
+<div class="right-menu">
+
+<div id="clock">00:00:00</div>
+
+<button class="theme-btn" id="themeBtn">
+<i class="fa-solid fa-moon"></i>
+</button>
+
+<div class="menu-toggle" id="menuToggle">
+<i class="fa-solid fa-bars"></i>
+</div>
+
+</div>
+
+</div>
+
+</header>
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="inicio">
+
+<div class="hero-content reveal">
+
+<h1>Saúde e Segurança na Escola</h1>
+
+<p>
+Cuidar da saúde e da segurança é responsabilidade de todos.
+Uma escola saudável e segura promove bem-estar,
+aprendizagem e qualidade de vida.
+</p>
+
+<a href="#saude" class="hero-btn">
+Saiba Mais
+</a>
+
+</div>
+
+</section>
+<!-- =========================
+     SAÚDE NA ESCOLA
+========================= -->
+
+<section id="saude">
+
+<div class="section-title reveal">
+    <h2>Saúde na Escola</h2>
+    <p>Promovendo qualidade de vida e bem-estar para estudantes.</p>
+</div>
+
+<div class="grid">
+
+    <div class="card reveal">
+        <i class="fa-solid fa-apple-whole"></i>
+        <h3>Alimentação Saudável</h3>
+        <p>
+            Uma alimentação equilibrada fornece energia,
+            melhora a concentração e contribui para o
+            desenvolvimento físico e intelectual.
+        </p>
+    </div>
+
+    <div class="card reveal">
+        <i class="fa-solid fa-glass-water"></i>
+        <h3>Hidratação</h3>
+        <p>
+            Beber água regularmente ajuda no funcionamento
+            do organismo, melhora a atenção e evita a
+            desidratação durante as atividades escolares.
+        </p>
+    </div>
+
+    <div class="card reveal">
+        <i class="fa-solid fa-person-running"></i>
+        <h3>Atividades Físicas</h3>
+        <p>
+            Exercícios físicos fortalecem o corpo,
+            ajudam no controle do estresse e promovem
+            hábitos saudáveis para toda a vida.
+        </p>
+    </div>
+
+    <div class="card reveal">
+        <i class="fa-solid fa-brain"></i>
+        <h3>Saúde Mental</h3>
+        <p>
+            O equilíbrio emocional é fundamental para
+            o aprendizado, convivência social e
+            desenvolvimento pessoal.
+        </p>
+    </div>
+
+    <div class="card reveal">
+        <i class="fa-solid fa-hands-bubbles"></i>
+        <h3>Higiene Pessoal</h3>
+        <p>
+            Lavar as mãos, manter os ambientes limpos
+            e cuidar da higiene diária ajudam a prevenir
+            doenças e infecções.
+        </p>
+    </div>
+
+</div>
+
+</section>
+
+<!-- =========================
+     SEGURANÇA NA ESCOLA
+========================= -->
+
+<section id="seguranca" style="background:var(--cinza);">
+
+<div class="section-title reveal">
+    <h2>Segurança na Escola</h2>
+    <p>Práticas que garantem proteção e convivência saudável.</p>
+</div>
+
+<div class="grid">
+
+    <div class="card reveal">
+        <i class="fa-solid fa-handshake"></i>
+        <h3>Regras de Convivência</h3>
+        <p>
+            O respeito às normas escolares promove um
+            ambiente harmonioso, seguro e acolhedor
+            para todos.
+        </p>
+    </div>
+
+    <div class="card reveal">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <h3>Prevenção de Acidentes</h3>
+        <p>
+            Atenção aos espaços escolares reduz riscos
+            e contribui para a segurança de estudantes
+            e profissionais.
+        </p>
+    </div>
+
+    <div class="card reveal">
+        <i class="fa-solid fa-stairs"></i>
+        <h3>Corredores e Escadas</h3>
+        <p>
+            Circular com cuidado evita quedas,
+            empurrões e outros acidentes comuns
+            no ambiente escolar.
+        </p>
+    </div>
+
+    <div class="card reveal">
+        <i class="fa-solid fa-flask"></i>
+        <h3>Equipamentos Escolares</h3>
+        <p>
+            Materiais de laboratório e equipamentos
+            devem ser utilizados corretamente e
+            sempre com orientação adequada.
+        </p>
+    </div>
+
+    <div class="card reveal">
+        <i class="fa-solid fa-shield-heart"></i>
+        <h3>Combate ao Bullying</h3>
+        <p>
+            Respeito, empatia e inclusão ajudam
+            a construir um ambiente escolar
+            saudável e acolhedor.
+        </p>
+    </div>
+
+</div>
+
+</section>
+
+<!-- =========================
+     CARTÕES INFORMATIVOS
+========================= -->
+
+<section id="dicas">
+
+<div class="section-title reveal">
+    <h2>Informações Importantes</h2>
+    <p>Dicas essenciais para uma escola mais saudável e segura.</p>
+</div>
+
+<div class="grid">
+
+    <div class="card reveal">
+        <i class="fa-solid fa-kit-medical"></i>
+        <h3>Primeiros Socorros</h3>
+        <p>
+            Conhecimentos básicos podem ajudar
+            em situações de emergência até a
+            chegada do atendimento especializado.
+        </p>
+    </div>
+
+    <div class="card reveal">
+        <i class="fa-solid fa-carrot"></i>
+        <h3>Alimentação Saudável</h3>
+        <p>
+            Frutas, verduras e refeições equilibradas
+            contribuem para melhor desempenho escolar.
+        </p>
+    </div>
+
+    <div class="card reveal">
+        <i class="fa-solid fa-laptop-shield"></i>
+        <h3>Segurança Digital</h3>
+        <p>
+            Utilizar senhas fortes e evitar compartilhar
+            informações pessoais aumenta a segurança online.
+        </p>
+    </div>
+
+    <div class="card reveal">
+        <i class="fa-solid fa-heart-circle-check"></i>
+        <h3>Saúde Mental</h3>
+        <p>
+            Conversar sobre emoções e buscar apoio
+            quando necessário fortalece o bem-estar.
+        </p>
+    </div>
+
+    <div class="card reveal">
+        <i class="fa-solid fa-helmet-safety"></i>
+        <h3>Prevenção de Acidentes</h3>
+        <p>
+            Pequenos cuidados diários fazem grande
+            diferença para evitar situações de risco.
+        </p>
+    </div>
+
+    <div class="card reveal">
+        <i class="fa-solid fa-people-group"></i>
+        <h3>Respeito e Inclusão</h3>
+        <p>
+            Valorizar as diferenças fortalece a convivência
+            e cria um ambiente acolhedor para todos.
+        </p>
+    </div>
+
+</div>
+
+</section>
+
+<!-- =========================
+     GALERIA DE IMAGENS
+========================= -->
+
+<section>
+
+<div class="section-title reveal">
+    <h2>Galeria</h2>
+    <p>Momentos que representam saúde, inclusão e segurança.</p>
+</div>
+
+<div class="grid">
+
+    <div class="card reveal">
+        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=900&q=80"
+        style="width:100%;border-radius:15px;">
+        <h3 style="margin-top:15px;">Alimentação Saudável</h3>
+    </div>
+
+    <div class="card reveal">
+        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80"
+        style="width:100%;border-radius:15px;">
+        <h3 style="margin-top:15px;">Atividades Físicas</h3>
+    </div>
+
+    <div class="card reveal">
+        <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=900&q=80"
+        style="width:100%;border-radius:15px;">
+        <h3 style="margin-top:15px;">Higiene</h3>
+    </div>
+
+    <div class="card reveal">
+        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=80"
+        style="width:100%;border-radius:15px;">
+        <h3 style="margin-top:15px;">Escola Segura</h3>
+    </div>
+
+    <div class="card reveal">
+        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80"
+        style="width:100%;border-radius:15px;">
+        <h3 style="margin-top:15px;">Inclusão</h3>
+    </div>
+
+    <div class="card reveal">
+        <img src="https://images.unsplash.com/photo-1584516150909-c43483ee7935?auto=format&fit=crop&w=900&q=80"
+        style="width:100%;border-radius:15px;">
+        <h3 style="margin-top:15px;">Primeiros Socorros</h3>
+    </div>
+
+</div>
+
+</section>
+<!-- =========================
+     ESTATÍSTICAS
+========================= -->
+
+<section>
+
+<div class="section-title reveal">
+    <h2>Estatísticas</h2>
+    <p>Indicadores relacionados à saúde e segurança escolar.</p>
+</div>
+
+<div class="grid">
+
+    <div class="card reveal">
+        <h3>Hábitos Saudáveis dos Estudantes</h3>
+        <canvas id="graficoBarra"></canvas>
+    </div>
+
+    <div class="card reveal">
+        <h3>Ações de Segurança Escolar</h3>
+        <canvas id="graficoPizza"></canvas>
+    </div>
+
+</div>
+
+<div style="text-align:center;margin-top:30px;">
+    <strong>Fonte:</strong>
+    Organização Mundial da Saúde (OMS),
+    Ministério da Saúde e MEC.
+</div>
+
+</section>
+
+<!-- =========================
+     VÍDEO EDUCATIVO
+========================= -->
+
+<section style="background:var(--cinza);">
+
+<div class="section-title reveal">
+    <h2>Vídeo Educativo</h2>
+    <p>Conscientização sobre saúde e segurança no ambiente escolar.</p>
+</div>
+
+<div class="reveal"
+style="
+max-width:900px;
+margin:auto;
+overflow:hidden;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+">
+
+<div style="
+position:relative;
+padding-bottom:56.25%;
+height:0;
+">
+
+<iframe
+src="https://www.youtube.com/embed/6R3jA6w3YJ8"
+title="Vídeo Educativo"
+allowfullscreen
+style="
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+border:none;
+">
+</iframe>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+     EMERGÊNCIAS
+========================= -->
+
+<section id="emergencia">
+
+<div class="section-title reveal">
+    <h2>Telefones de Emergência</h2>
+    <p>Em situações urgentes, procure ajuda imediatamente.</p>
+</div>
+
+<div class="grid">
+
+<div class="card reveal"
+style="border-left:6px solid #ef4444;">
+    <i class="fa-solid fa-truck-medical"></i>
+    <h3>SAMU</h3>
+    <p><strong>192</strong></p>
+</div>
+
+<div class="card reveal"
+style="border-left:6px solid #f97316;">
+    <i class="fa-solid fa-fire-extinguisher"></i>
+    <h3>Bombeiros</h3>
+    <p><strong>193</strong></p>
+</div>
+
+<div class="card reveal"
+style="border-left:6px solid #2563eb;">
+    <i class="fa-solid fa-shield"></i>
+    <h3>Polícia Militar</h3>
+    <p><strong>190</strong></p>
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+     CONTATO
+========================= -->
+
+<section id="contato"
+style="background:var(--cinza);">
+
+<div class="section-title reveal">
+    <h2>Contato</h2>
+    <p>Envie sua mensagem.</p>
+</div>
+
+<div class="card reveal"
+style="
+max-width:700px;
+margin:auto;
+">
+
+<form id="contactForm">
+
+<div style="margin-bottom:15px;">
+<input
+type="text"
+id="nome"
+placeholder="Seu Nome"
+style="
+width:100%;
+padding:15px;
+border:1px solid #ddd;
+border-radius:10px;
+font-family:Poppins;
+">
+</div>
+
+<div style="margin-bottom:15px;">
+<input
+type="email"
+id="email"
+placeholder="Seu E-mail"
+style="
+width:100%;
+padding:15px;
+border:1px solid #ddd;
+border-radius:10px;
+font-family:Poppins;
+">
+</div>
+
+<div style="margin-bottom:15px;">
+<textarea
+id="mensagem"
+rows="6"
+placeholder="Digite sua mensagem..."
+style="
+width:100%;
+padding:15px;
+border:1px solid #ddd;
+border-radius:10px;
+font-family:Poppins;
+resize:none;
+"></textarea>
+</div>
+
+<button
+type="submit"
+class="hero-btn"
+style="border:none;cursor:pointer;">
+Enviar Mensagem
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+<!-- =========================
+     BOTÃO TOPO
+========================= -->
+
+<button id="topBtn"
+style="
+position:fixed;
+right:25px;
+bottom:25px;
+width:55px;
+height:55px;
+border:none;
+border-radius:50%;
+background:var(--azul);
+color:white;
+font-size:22px;
+cursor:pointer;
+display:none;
+box-shadow:0 5px 15px rgba(0,0,0,.25);
+z-index:999;
+">
+<i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<!-- =========================
+     RODAPÉ
+========================= -->
+
+<footer
+style="
+background:#111827;
+color:white;
+padding:40px 20px;
+text-align:center;
+">
+
+<h3>Saúde e Segurança na Escola</h3>
+
+<p style="margin-top:10px;">
+Projeto Educacional
+</p>
+
+<p style="margin-top:10px;">
+Nome da Escola
+</p>
+
+<p style="margin-top:10px;">
+© <span id="year"></span> Todos os Direitos Reservados
+</p>
+
+</footer>
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+/* ==========================
+   RELÓGIO
+========================== */
+
+function atualizarRelogio(){
+
+const agora = new Date();
+
+const hora =
+agora.toLocaleTimeString('pt-BR');
+
+document.getElementById("clock")
+.innerHTML = hora;
+
+}
+
+setInterval(atualizarRelogio,1000);
+
+atualizarRelogio();
+
+/* ==========================
+   ANO AUTOMÁTICO
+========================== */
+
+document.getElementById("year")
+.innerHTML =
+new Date().getFullYear();
+
+/* ==========================
+   DARK MODE
+========================== */
+
+const themeBtn =
+document.getElementById("themeBtn");
+
+themeBtn.addEventListener("click",()=>{
+
+document.body.classList
+.toggle("dark-mode");
+
+});
+
+/* ==========================
+   MENU MOBILE
+========================== */
+
+const menuToggle =
+document.getElementById("menuToggle");
+
+const navLinks =
+document.getElementById("navLinks");
+
+menuToggle.addEventListener("click",()=>{
+
+navLinks.classList.toggle("active");
+
+});
+
+/* ==========================
+   BOTÃO TOPO
+========================== */
+
+const topBtn =
+document.getElementById("topBtn");
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY > 400){
+
+topBtn.style.display = "block";
+
+}else{
+
+topBtn.style.display = "none";
+
+}
+
+});
+
+topBtn.addEventListener("click",()=>{
+
+window.scrollTo({
+
+top:0,
+behavior:"smooth"
+
+});
+
+});
+
+/* ==========================
+   ANIMAÇÕES
+========================== */
+
+const reveals =
+document.querySelectorAll(".reveal");
+
+window.addEventListener("scroll",()=>{
+
+reveals.forEach(item=>{
+
+const altura =
+window.innerHeight;
+
+const topo =
+item.getBoundingClientRect().top;
+
+if(topo < altura - 100){
+
+item.classList.add("active");
+
+}
+
+});
+
+});
+
+/* ==========================
+   FORMULÁRIO
+========================== */
+
+document
+.getElementById("contactForm")
+.addEventListener("submit",(e)=>{
+
+e.preventDefault();
+
+const nome =
+document.getElementById("nome").value;
+
+const email =
+document.getElementById("email").value;
+
+const mensagem =
+document.getElementById("mensagem").value;
+
+if(
+nome === "" ||
+email === "" ||
+mensagem === ""
+){
+
+alert(
+"Preencha todos os campos."
+);
+
+return;
+
+}
+
+alert(
+"Mensagem enviada com sucesso!"
+);
+
+e.target.reset();
+
+});
+
+/* ==========================
+   GRÁFICO DE BARRAS
+========================== */
+
+new Chart(
+document.getElementById("graficoBarra"),
+{
+type:"bar",
+
+data:{
+labels:[
+"Alimentação",
+"Hidratação",
+"Exercícios",
+"Higiene",
+"Saúde Mental"
+],
+
+datasets:[{
+
+label:"Percentual (%)",
+
+data:[
+88,
+92,
+75,
+90,
+80
+],
+
+backgroundColor:[
+"#2563eb",
+"#22c55e",
+"#3b82f6",
+"#10b981",
+"#60a5fa"
+]
+
+}]
+},
+
+options:{
+responsive:true
+}
+
+}
+);
+
+/* ==========================
+   GRÁFICO DE PIZZA
+========================== */
+
+new Chart(
+document.getElementById("graficoPizza"),
+{
+type:"pie",
+
+data:{
+labels:[
+"Bullying",
+"Prevenção",
+"Primeiros Socorros",
+"Segurança Digital"
+],
+
+datasets:[{
+
+data:[
+25,
+35,
+20,
+20
+],
+
+backgroundColor:[
+"#2563eb",
+"#22c55e",
+"#60a5fa",
+"#10b981"
+]
+
+}]
+},
+
+options:{
+responsive:true
+}
+
+}
+);
+
+</script>
+
+</body>
+</html>
