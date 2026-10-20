@@ -4,33 +4,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="description" content="Minha Semana das Crianças: recordações especiais e planos para 2027.">
 <title>Minha Semana das Crianças 🎈</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
-/* ===== CONFIGURAÇÕES GERAIS ===== */
 :root {
-    --azul: #173875;
-    --azul-claro: #e5f5ff;
-    --rosa: #ffeaf2;
-    --amarelo: #fff5d5;
-    --verde: #e3f8ec;
-    --roxo: #f0e8ff;
-    --texto: #202c49;
-    --fundo: #f8fbff;
-    --cartao: #ffffff;
+    --roxo: #7048e8;
+    --rosa: #ff6b9a;
+    --azul: #36a3ff;
+    --amarelo: #ffd166;
+    --fundo: #f8f7ff;
+    --texto: #292544;
+    --branco: #ffffff;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-html {
     scroll-behavior: smooth;
 }
 
@@ -41,481 +36,312 @@ body {
     line-height: 1.7;
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-.container {
-    width: min(1100px, 90%);
-    margin: auto;
-}
-
-section {
-    scroll-margin-top: 90px;
-}
-
-/* ===== CABEÇALHO ===== */
 header {
-    background: var(--azul);
-    color: white;
+    background: rgba(255,255,255,.95);
+    padding: 16px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    box-shadow: 0 4px 20px #30206010;
     position: sticky;
     top: 0;
-    z-index: 100;
-    box-shadow: 0 5px 20px #132d541c;
-}
-
-.navbar {
-    min-height: 75px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
+    z-index: 10;
 }
 
 .logo {
-    font-size: 1.2rem;
+    color: var(--roxo);
+    font-size: 1.3rem;
     font-weight: 900;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo span {
-    font-size: 1.8rem;
 }
 
 nav {
     display: flex;
-    gap: 25px;
-    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
 }
 
 nav a {
+    text-decoration: none;
+    color: var(--texto);
     font-weight: 800;
-    transition: color .2s;
+    transition: .2s;
 }
 
 nav a:hover {
-    color: #ffda63;
+    color: var(--roxo);
 }
 
-.menu-btn {
-    display: none;
-    background: transparent;
-    border: 1px solid #ffffff55;
-    color: white;
-    padding: 9px 12px;
-    border-radius: 10px;
-    font-size: 1.2rem;
-}
-
-/* ===== BANNER ===== */
 .hero {
-    padding: 90px 0;
-    background: linear-gradient(135deg, #dff5ff, #fff0f7);
-    overflow: hidden;
-}
-
-.hero-grid {
-    display: grid;
-    grid-template-columns: 1.1fr .9fr;
+    min-height: 510px;
+    padding: 80px 8%;
+    display: flex;
     align-items: center;
-    gap: 45px;
+    justify-content: center;
+    text-align: center;
+    background:
+        radial-gradient(circle at 10% 15%, #ffd16680, transparent 20%),
+        radial-gradient(circle at 90% 20%, #ff6b9a45, transparent 22%),
+        radial-gradient(circle at 80% 90%, #36a3ff40, transparent 25%),
+        linear-gradient(135deg, #eee7ff, #fff1f6);
 }
 
-.etiqueta {
+.hero-content {
+    max-width: 850px;
+}
+
+.tag {
     display: inline-block;
-    background: #fff0b5;
-    color: #74500a;
-    padding: 8px 17px;
+    padding: 7px 18px;
     border-radius: 30px;
+    background: #ffffffb8;
+    color: var(--roxo);
     font-weight: 900;
-    margin-bottom: 20px;
-}
-
-.hero h1 {
-    font-size: clamp(2.8rem, 6vw, 5rem);
-    line-height: 1.05;
-    color: var(--azul);
-    letter-spacing: -2px;
-}
-
-.hero h1 span {
-    color: #ef4d91;
-}
-
-.hero p {
-    margin: 22px 0;
-    font-size: 1.1rem;
-    color: #53617b;
-}
-
-.botao {
-    display: inline-block;
-    padding: 14px 23px;
-    background: var(--azul);
-    color: white;
-    border-radius: 14px;
-    font-weight: 900;
-    box-shadow: 0 7px 18px #17387524;
-    transition: transform .2s;
-}
-
-.botao:hover {
-    transform: translateY(-4px);
-}
-
-.hero-art {
-    min-height: 340px;
-    background: linear-gradient(145deg, #ffdb86, #ffb8d1);
-    border-radius: 48% 52% 35% 65%;
-    display: grid;
-    place-items: center;
-    position: relative;
-    box-shadow: 0 20px 45px #17387515;
-}
-
-.hero-art .ursinho {
-    font-size: clamp(8rem, 18vw, 13rem);
-    animation: flutuar 4s ease-in-out infinite;
-}
-
-.decoracao {
-    position: absolute;
-    font-size: 2.7rem;
-    animation: flutuar 3s ease-in-out infinite;
-}
-
-.d1 { top: 10%; left: 5%; }
-.d2 { top: 8%; right: 7%; animation-delay: .5s; }
-.d3 { bottom: 10%; left: 8%; animation-delay: 1s; }
-.d4 { bottom: 8%; right: 6%; animation-delay: .7s; }
-
-@keyframes flutuar {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
-}
-
-/* ===== FAIXA DE DESTAQUES ===== */
-.faixa {
-    background: var(--azul);
-    color: white;
-    padding: 24px 0;
-}
-
-.faixa-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    text-align: center;
-    gap: 20px;
-}
-
-.faixa-item {
-    font-weight: 900;
-}
-
-.faixa-item span {
-    display: block;
-    font-size: 1.8rem;
-}
-
-/* ===== MOMENTOS ===== */
-.momentos {
-    padding: 85px 0;
-}
-
-.titulo-secao {
-    text-align: center;
-    margin-bottom: 45px;
-}
-
-.titulo-secao .subtitulo {
-    color: #ef4d91;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: .8rem;
-}
-
-.titulo-secao h2 {
-    color: var(--azul);
-    font-size: clamp(2rem, 4vw, 3rem);
-    line-height: 1.2;
-    margin: 10px 0;
-}
-
-.titulo-secao p {
-    color: #69748b;
-}
-
-.momento {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 30px;
-    margin-bottom: 22px;
-    padding: 28px;
-    border-radius: 27px;
-    transition: transform .25s, box-shadow .25s;
-}
-
-.momento:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px #17387512;
-}
-
-.momento:nth-of-type(2) { background: var(--azul-claro); }
-.momento:nth-of-type(3) { background: var(--rosa); }
-.momento:nth-of-type(4) { background: var(--amarelo); }
-.momento:nth-of-type(5) { background: var(--verde); }
-.momento:nth-of-type(6) { background: var(--roxo); }
-
-.momento:nth-of-type(3) .conteudo { order: 2; }
-.momento:nth-of-type(3) .ilustracao { order: 1; }
-.momento:nth-of-type(5) .conteudo { order: 2; }
-.momento:nth-of-type(5) .ilustracao { order: 1; }
-
-.icone {
-    font-size: 2.8rem;
-    margin-bottom: 5px;
-}
-
-.conteudo h3 {
-    font-size: 1.65rem;
-    color: var(--azul);
-    margin-bottom: 12px;
-    line-height: 1.3;
-}
-
-.conteudo p {
-    font-size: 1.03rem;
-}
-
-.ilustracao {
-    min-height: 220px;
-    border-radius: 20px;
-    display: grid;
-    place-items: center;
-    font-size: 7rem;
-    background: #ffffff8a;
-    overflow: hidden;
-}
-
-.ilustracao.carros { background: linear-gradient(135deg, #d8eaff, #b9dcff); }
-.ilustracao.escola { background: linear-gradient(135deg, #ffe0ed, #ffc5da); }
-.ilustracao.bolo { background: linear-gradient(135deg, #fff0bd, #ffd98a); }
-.ilustracao.piscina { background: linear-gradient(135deg, #c9f5ff, #77d8f5); }
-.ilustracao.trabalho { background: linear-gradient(135deg, #e2d8ff, #c8b8ff); }
-
-/* ===== TEXTO ORIGINAL ===== */
-.historia {
-    background: white;
-    border: 2px dashed #d6caff;
-    padding: 35px;
-    border-radius: 25px;
-    margin-top: 45px;
-}
-
-.historia h3 {
-    color: var(--azul);
-    font-size: 1.6rem;
     margin-bottom: 18px;
 }
 
-.historia p {
-    margin-bottom: 15px;
-    color: #3f4960;
+.hero h1 {
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 20px;
 }
 
-.historia p:last-child {
+.hero h1 span {
+    color: var(--roxo);
+}
+
+.hero p {
+    max-width: 650px;
+    margin: auto;
+    font-size: 1.15rem;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+}
+
+.btn {
+    display: inline-block;
+    border: none;
+    border-radius: 14px;
+    padding: 13px 22px;
+    text-decoration: none;
+    font: inherit;
+    font-weight: 900;
+    cursor: pointer;
+    transition: transform .2s, box-shadow .2s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px #39256b20;
+}
+
+.btn-primary {
+    background: var(--roxo);
+    color: white;
+}
+
+.btn-secondary {
+    background: white;
+    color: var(--roxo);
+}
+
+section {
+    padding: 75px 8%;
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 40px;
+}
+
+.section-heading h2 {
+    font-size: clamp(1.8rem, 4vw, 2.7rem);
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+.section-heading p {
+    color: #6d6983;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+    max-width: 1150px;
+    margin: auto;
+}
+
+.card {
+    background: white;
+    border-radius: 22px;
+    padding: 27px;
+    box-shadow: 0 10px 35px #3020600c;
+    border: 1px solid #eeeafa;
+    transition: transform .25s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+.card .emoji {
+    font-size: 2.7rem;
+    margin-bottom: 12px;
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 9px;
+}
+
+.card p {
+    color: #68647c;
+}
+
+.history {
+    background: white;
+}
+
+.story {
+    max-width: 900px;
+    margin: auto;
+    padding: 35px;
+    border-radius: 24px;
+    background: var(--fundo);
+    border-left: 6px solid var(--roxo);
+}
+
+.story p {
+    margin-bottom: 16px;
+}
+
+.story p:last-child {
     margin-bottom: 0;
 }
 
-/* ===== AGRADECIMENTO ===== */
-.gratidao {
-    padding: 20px 0 85px;
+.plans {
+    background: linear-gradient(135deg, #eee8ff, #fff0f6);
 }
 
-.gratidao-box {
-    background: linear-gradient(130deg, #173875, #344f99);
+.plan-card {
+    background: white;
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: 0 12px 30px #39256b12;
+}
+
+.plan-card .emoji {
+    font-size: 2.5rem;
+}
+
+.plan-card h3 {
+    margin: 12px 0 8px;
+}
+
+.plan-card p {
+    color: #68647c;
+}
+
+.highlight {
+    max-width: 1000px;
+    margin: 40px auto 0;
+    background: var(--roxo);
     color: white;
+    border-radius: 24px;
+    padding: 35px;
     text-align: center;
-    padding: 55px 30px;
-    border-radius: 30px;
-    position: relative;
-    overflow: hidden;
 }
 
-.gratidao-box .coracao {
-    font-size: 3.4rem;
+.highlight h3 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
 }
 
-.gratidao-box h2 {
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    margin: 12px 0;
+.highlight p {
+    color: #f0eaff;
 }
 
-.gratidao-box p {
-    max-width: 750px;
+.message {
+    max-width: 800px;
     margin: auto;
-    font-size: 1.05rem;
+    text-align: center;
 }
 
-.frase-final {
-    color: #ffdf69;
-    font-weight: 900;
-    margin-top: 22px !important;
+.message .big-emoji {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
 }
 
-/* ===== RODAPÉ ===== */
+.message h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
 footer {
-    background: #111f40;
+    padding: 30px 8%;
+    background: #25203d;
     color: white;
     text-align: center;
-    padding: 30px 15px;
 }
 
 footer p {
-    color: #d0dbf4;
-    font-size: .95rem;
+    color: #d9d3ed;
 }
 
-footer .rodape-emoji {
-    font-size: 1.5rem;
-    margin-bottom: 8px;
-}
-
-/* ===== ANIMAÇÕES DE ENTRADA ===== */
-.revelar {
-    opacity: 0;
-    transform: translateY(22px);
-    transition: opacity .7s ease, transform .7s ease;
-}
-
-.revelar.visivel {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ===== BOTÃO TOPO ===== */
-.topo {
+#topo {
     position: fixed;
     bottom: 20px;
     right: 20px;
+    display: none;
     width: 48px;
     height: 48px;
-    background: #ef4d91;
+    border: none;
+    border-radius: 50%;
+    background: var(--roxo);
     color: white;
-    border: 0;
-    border-radius: 15px;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     cursor: pointer;
-    display: none;
-    z-index: 90;
-    box-shadow: 0 5px 20px #0002;
-}
-
-.topo.mostrar {
-    display: block;
-}
-
-/* ===== CELULARES E TABLETS ===== */
-@media (max-width: 800px) {
-    .hero-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-art {
-        min-height: 290px;
-    }
-
-    .hero-art .ursinho {
-        font-size: 9rem;
-    }
-
-    .momento {
-        grid-template-columns: 1fr;
-        padding: 22px;
-    }
-
-    .momento:nth-of-type(3) .conteudo,
-    .momento:nth-of-type(3) .ilustracao,
-    .momento:nth-of-type(5) .conteudo,
-    .momento:nth-of-type(5) .ilustracao {
-        order: initial;
-    }
-
-    .faixa-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    box-shadow: 0 5px 18px #39256b35;
 }
 
 @media (max-width: 650px) {
-    .navbar {
-        min-height: 68px;
-    }
-
-    .logo {
-        font-size: 1rem;
-    }
-
-    .menu-btn {
-        display: block;
+    header {
+        justify-content: center;
+        text-align: center;
     }
 
     nav {
-        display: none;
-        position: absolute;
-        top: 68px;
-        left: 0;
-        right: 0;
-        background: var(--azul);
-        padding: 20px 5%;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    nav.aberto {
-        display: flex;
+        justify-content: center;
+        gap: 10px 15px;
     }
 
     .hero {
-        padding: 55px 0;
+        padding: 65px 6%;
     }
 
-    .hero h1 {
-        letter-spacing: -1px;
+    section {
+        padding: 55px 6%;
     }
 
-    .momentos {
-        padding: 60px 0;
-    }
-
-    .ilustracao {
-        min-height: 170px;
-        font-size: 5.5rem;
-    }
-
-    .historia {
-        padding: 24px;
-    }
-
-    .gratidao-box {
-        padding: 40px 22px;
+    .story {
+        padding: 23px;
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
-        animation: none !important;
-        transition: none !important;
         scroll-behavior: auto !important;
-    }
-
-    .revelar {
-        opacity: 1;
-        transform: none;
+        transition: none !important;
     }
 }
 </style>
@@ -523,261 +349,223 @@ footer .rodape-emoji {
 
 <body>
 
-<!-- ===== MENU ===== -->
 <header>
-    <div class="container navbar">
-        <a href="#inicio" class="logo">
-            <span>☀️</span>
-            Minha Semana das Crianças
-        </a>
-
-        <button class="menu-btn" id="menuBtn"
-                aria-label="Abrir menu" aria-expanded="false">☰</button>
-
-        <nav id="menu">
-            <a href="#inicio">Início</a>
-            <a href="#momentos">Momentos</a>
-            <a href="#historia">Minha história</a>
-            <a href="#gratidao">Gratidão</a>
-        </nav>
-    </div>
+    <div class="logo">🎈 Minha Semana</div>
+    <nav aria-label="Menu principal">
+        <a href="#inicio">Início</a>
+        <a href="#lembrancas">Lembranças</a>
+        <a href="#historia">Minha história</a>
+        <a href="#2027">Planos 2027</a>
+    </nav>
 </header>
 
 <main>
-
-<!-- ===== INÍCIO ===== -->
-<section class="hero" id="inicio">
-    <div class="container hero-grid">
-        <div class="revelar">
-            <span class="etiqueta">🎉 Uma semana especial!</span>
-
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <span class="tag">✨ Momentos especiais e novos sonhos</span>
             <h1>Minha Semana das <span>Crianças!</span></h1>
-
             <p>
-                Uma semana cheia de alegria, diversão, passeios,
-                aprendizado e momentos inesquecíveis com minha família!
+                Uma história de passeios, família, diversão e aprendizado.
+                E uma nova expectativa para viver momentos incríveis em 2027!
             </p>
-
-            <a href="#momentos" class="botao">
-                ✨ Conheça meus momentos
-            </a>
-        </div>
-
-        <div class="hero-art revelar">
-            <span class="decoracao d1">🎈</span>
-            <span class="decoracao d2">⭐</span>
-            <span class="ursinho">🧸</span>
-            <span class="decoracao d3">🎨</span>
-            <span class="decoracao d4">🪁</span>
-        </div>
-    </div>
-</section>
-
-<!-- ===== DESTAQUES ===== -->
-<div class="faixa">
-    <div class="container faixa-grid">
-        <div class="faixa-item"><span>🚗</span>Passeios</div>
-        <div class="faixa-item"><span>🏫</span>Escola</div>
-        <div class="faixa-item"><span>🎂</span>Família</div>
-        <div class="faixa-item"><span>💙</span>Gratidão</div>
-    </div>
-</div>
-
-<!-- ===== MOMENTOS ESPECIAIS ===== -->
-<section class="momentos" id="momentos">
-    <div class="container">
-
-        <div class="titulo-secao revelar">
-            <span class="subtitulo">MEUS MELHORES MOMENTOS</span>
-            <h2>Uma semana para guardar na memória 💛</h2>
-            <p>Cada experiência fez parte de uma semana muito especial!</p>
-        </div>
-
-        <!-- PASSEIO COM O PAI -->
-        <article class="momento revelar">
-            <div class="conteudo">
-                <div class="icone">🚗</div>
-                <h3>Passeio com meu pai</h3>
-                <p>
-                    Durante essa semana, saí com meu pai para olhar alguns carros
-                    em Ipatinga, Coronel Fabriciano e Revés do Belém.
-                    Foi muito bom passar esse tempo com ele e compartilhar
-                    esses momentos juntos.
-                </p>
+            <div class="buttons">
+                <a class="btn btn-primary" href="#lembrancas">Relembrar momentos 💜</a>
+                <a class="btn btn-secondary" href="#2027">Sonhar com 2027 🚀</a>
             </div>
-            <div class="ilustracao carros">🚙 🚘</div>
-        </article>
+        </div>
+    </section>
 
-        <!-- FESTINHA DA ESCOLA -->
-        <article class="momento revelar">
-            <div class="conteudo">
-                <div class="icone">🎉</div>
+    <section id="lembrancas">
+        <div class="section-heading">
+            <h2>🌟 Momentos que ficaram na memória</h2>
+            <p>Algumas das experiências especiais que fizeram parte da minha semana.</p>
+        </div>
+
+        <div class="cards">
+            <article class="card">
+                <div class="emoji">🚗</div>
+                <h3>Passeios com meu pai</h3>
+                <p>Fui com meu pai olhar carros em Ipatinga, Coronel Fabriciano e Revés do Belém. Foi uma oportunidade de aproveitar o tempo com ele.</p>
+            </article>
+
+            <article class="card">
+                <div class="emoji">🏫</div>
                 <h3>Festinha na escola</h3>
-                <p>
-                    Também fui à escola e participei da festinha da Semana
-                    das Crianças, aproveitando a diversão com os colegas.
-                </p>
-            </div>
-            <div class="ilustracao escola">🎈 🏫 🎊</div>
-        </article>
+                <p>Participei da comemoração da Semana das Crianças e aproveitei a diversão junto com meus colegas.</p>
+            </article>
 
-        <!-- ANIVERSÁRIO DA AVÓ -->
-        <article class="momento revelar">
-            <div class="conteudo">
-                <div class="icone">🎂</div>
+            <article class="card">
+                <div class="emoji">🎂</div>
                 <h3>Aniversário da minha avó</h3>
-                <p>
-                    Outro momento muito especial foi o aniversário da minha avó,
-                    que minha família comemorou na minha casa. Foi um dia de
-                    muita alegria, união e carinho.
-                </p>
-            </div>
-            <div class="ilustracao bolo">🎂 🎁 💐</div>
-        </article>
+                <p>Minha família comemorou o aniversário da minha avó na minha casa. Foi um momento de carinho, união e alegria.</p>
+            </article>
 
-        <!-- PISCINA -->
-        <article class="momento revelar">
-            <div class="conteudo">
-                <div class="icone">🏊</div>
+            <article class="card">
+                <div class="emoji">🏊</div>
                 <h3>Diversão na piscina</h3>
-                <p>
-                    Aproveitamos para curtir a piscina, conversar, dar risadas
-                    e criar boas lembranças em família.
-                </p>
-            </div>
-            <div class="ilustracao piscina">🌊 🏖️ ☀️</div>
-        </article>
+                <p>Aproveitei a piscina com a família, conversei, dei risadas e criei boas lembranças com as pessoas que amo.</p>
+            </article>
 
-        <!-- TRABALHO COM O PAI -->
-        <article class="momento revelar">
-            <div class="conteudo">
-                <div class="icone">🛠️</div>
+            <article class="card">
+                <div class="emoji">🛠️</div>
                 <h3>Trabalhando com meu pai</h3>
-                <p>
-                    Além disso, também trabalhei com meu pai, aprendendo
-                    coisas novas e tendo a oportunidade de passar mais
-                    tempo ao lado dele.
-                </p>
-            </div>
-            <div class="ilustracao trabalho">🔧 👨‍🔧 💙</div>
-        </article>
+                <p>Também trabalhei com meu pai, aprendi coisas novas e passei mais tempo ao lado dele.</p>
+            </article>
 
-    </div>
-</section>
+            <article class="card">
+                <div class="emoji">💙</div>
+                <h3>Tempo em família</h3>
+                <p>Esses momentos me mostraram como é bom estar perto da família e valorizar as experiências simples da vida.</p>
+            </article>
+        </div>
+    </section>
 
-<!-- ===== TEXTO ORIGINAL EXATAMENTE COMO ESCRITO ===== -->
-<section class="container" id="historia" style="padding-bottom: 80px;">
-    <div class="titulo-secao revelar">
-        <span class="subtitulo">MINHA EXPERIÊNCIA</span>
-        <h2>Minha história completa ✍️</h2>
-        <p>Um registro dos momentos especiais que vivi.</p>
-    </div>
+    <section class="history" id="historia">
+        <div class="section-heading">
+            <h2>📖 Minha história</h2>
+            <p>O relato da minha Semana das Crianças anterior.</p>
+        </div>
 
-    <article class="historia revelar">
-        <h3>🎈 Minha Semana das Crianças 🎉</h3>
-
-        <p>Minha Semana das Crianças foi muito especial, cheia de momentos felizes, diversão e experiências ao lado das pessoas que amo.</p>
-
-        <p>Durante essa semana, saí com meu pai para olhar alguns carros em Ipatinga, Coronel Fabriciano e Revés do Belém. Foi muito bom passar esse tempo com ele e compartilhar esses momentos juntos. Também fui à escola e participei da festinha da Semana das Crianças, aproveitando a diversão com os colegas.</p>
-
-        <p>Outro momento muito especial foi o aniversário da minha avó, que minha família comemorou na minha casa. Foi um dia de muita alegria, união e carinho. Aproveitamos para curtir a piscina, conversar, dar risadas e criar boas lembranças em família.</p>
-
-        <p>Além disso, também trabalhei com meu pai, aprendendo coisas novas e tendo a oportunidade de passar mais tempo ao lado dele.</p>
-
-        <p>Foi uma semana com passeios, trabalho, diversão na escola e momentos inesquecíveis com minha família. Sou muito grato por tudo que vivi e pelas pessoas que fizeram parte desses dias. <strong>Minha Semana das Crianças foi marcada por alegria, união, aprendizado e lembranças que vou guardar com muito carinho! 💙🎉</strong></p>
-    </article>
-</section>
-
-<!-- ===== GRATIDÃO ===== -->
-<section class="gratidao" id="gratidao">
-    <div class="container">
-        <div class="gratidao-box revelar">
-            <div class="coracao">💙</div>
-
-            <h2>Momentos que ficam para sempre!</h2>
+        <div class="story">
+            <p>
+                Minha Semana das Crianças foi muito especial, cheia de momentos
+                felizes, diversão e experiências ao lado das pessoas que amo.
+            </p>
 
             <p>
-                Foi uma semana com passeios, trabalho, diversão na escola
-                e momentos inesquecíveis com minha família. Sou muito grato
-                por tudo que vivi e pelas pessoas que fizeram parte desses dias.
+                Durante essa semana, saí com meu pai para olhar alguns carros em
+                Ipatinga, Coronel Fabriciano e Revés do Belém. Foi muito bom
+                passar esse tempo com ele e compartilhar esses momentos juntos.
+                Também fui à escola e participei da festinha da Semana das
+                Crianças, aproveitando a diversão com os colegas.
             </p>
 
-            <p class="frase-final">
-                Minha Semana das Crianças foi marcada por alegria,
-                união, aprendizado e lembranças que vou guardar com muito carinho! 🎉
+            <p>
+                Outro momento muito especial foi o aniversário da minha avó,
+                que minha família comemorou na minha casa. Foi um dia de muita
+                alegria, união e carinho. Aproveitamos para curtir a piscina,
+                conversar, dar risadas e criar boas lembranças em família.
             </p>
 
-            <div style="font-size: 2.2rem; margin-top: 20px;">
-                🎈 ⭐ 🎂 🧸 🌈
+            <p>
+                Além disso, também trabalhei com meu pai, aprendendo coisas
+                novas e tendo a oportunidade de passar mais tempo ao lado dele.
+            </p>
+
+            <p>
+                Foi uma semana com passeios, trabalho, diversão na escola e
+                momentos inesquecíveis com minha família. Sou muito grato por
+                tudo que vivi e pelas pessoas que fizeram parte desses dias.
+            </p>
+
+            <p>
+                <strong>
+                    Minha Semana das Crianças foi marcada por alegria, união,
+                    aprendizado e lembranças que vou guardar com muito carinho! 💙🎉
+                </strong>
+            </p>
+        </div>
+    </section>
+
+    <section class="plans" id="2027">
+        <div class="section-heading">
+            <span class="tag">🔮 Meus novos planos</span>
+            <h2>Minha Semana das Crianças de 2027</h2>
+            <p>
+                Quero aproveitar essa nova semana de um jeito especial,
+                curtindo a amizade, a liberdade de me divertir e o conforto de casa.
+            </p>
+        </div>
+
+        <div class="cards">
+            <article class="plan-card">
+                <div class="emoji">🧑‍🤝‍🧑</div>
+                <h3>Sair com meus amigos</h3>
+                <p>
+                    Quero combinar passeios com meus amigos, conversar, dar
+                    risadas e aproveitar bons momentos juntos durante a semana.
+                </p>
+            </article>
+
+            <article class="plan-card">
+                <div class="emoji">🎮</div>
+                <h3>Me divertir</h3>
+                <p>
+                    Espero encontrar atividades legais para fazer, jogar,
+                    brincar e aproveitar meu tempo livre de uma forma divertida.
+                </p>
+            </article>
+
+            <article class="plan-card">
+                <div class="emoji">🏠</div>
+                <h3>Aproveitar minha casa</h3>
+                <p>
+                    Também quero curtir a semana em casa, descansar, assistir
+                    a coisas de que gosto, jogar e aproveitar meu espaço.
+                </p>
+            </article>
+
+            <article class="plan-card">
+                <div class="emoji">👨‍👩‍👧‍👦</div>
+                <h3>Valorizar quem está comigo</h3>
+                <p>
+                    Quero aproveitar os momentos com minha família e continuar
+                    criando lembranças boas com as pessoas importantes para mim.
+                </p>
+            </article>
+        </div>
+
+        <div class="highlight">
+            <h3>🎉 Meu desejo para 2027</h3>
+            <p>
+                Espero que a Semana das Crianças de 2027 seja cheia de alegria,
+                amizade, diversão e tranquilidade. Quero sair com meus amigos,
+                aproveitar os dias em casa e viver cada momento com entusiasmo.
+                Não preciso de grandes coisas para ser feliz: quero aproveitar
+                as oportunidades, estar perto de quem gosto e criar novas
+                lembranças que vou guardar com carinho!
+            </p>
+        </div>
+    </section>
+
+    <section id="agradecimento">
+        <div class="message">
+            <div class="big-emoji">💜✨</div>
+            <h2>Cada semana pode trazer uma nova história!</h2>
+            <p>
+                Guardo com carinho as experiências que já vivi e espero com
+                alegria tudo o que ainda está por vir. Que 2027 seja uma
+                oportunidade para me divertir, aprender e aproveitar bons
+                momentos com meus amigos e minha família.
+            </p>
+            <div class="buttons">
+                <a class="btn btn-primary" href="#inicio">Voltar ao início ↑</a>
             </div>
         </div>
-    </div>
-</section>
-
+    </section>
 </main>
 
-<!-- ===== RODAPÉ ===== -->
 <footer>
-    <div class="rodape-emoji">🎈 💙 🎉</div>
-    <p><strong>Minha Semana das Crianças</strong></p>
-    <p>Uma semana especial, cheia de histórias para contar!</p>
-    <p style="margin-top: 12px;">
-        © <span id="ano"></span> - Feito com carinho.
-    </p>
+    <p>🎈 Minha Semana das Crianças</p>
+    <p>Recordações especiais e planos para 2027 💙</p>
+    <p>Feito com carinho ✨</p>
 </footer>
 
-<button class="topo" id="topo" aria-label="Voltar ao início">↑</button>
+<button id="topo" aria-label="Voltar ao topo" title="Voltar ao topo">↑</button>
 
 <script>
-// ===== MENU PARA CELULARES =====
-const menuBtn = document.getElementById('menuBtn');
-const menu = document.getElementById('menu');
-
-menuBtn.addEventListener('click', () => {
-    const aberto = menu.classList.toggle('aberto');
-    menuBtn.setAttribute('aria-expanded', aberto);
-    menuBtn.textContent = aberto ? '✕' : '☰';
-});
-
-document.querySelectorAll('#menu a').forEach(link => {
-    link.addEventListener('click', () => {
-        menu.classList.remove('aberto');
-        menuBtn.setAttribute('aria-expanded', 'false');
-        menuBtn.textContent = '☰';
-    });
-});
-
-// ===== ANO AUTOMÁTICO =====
-document.getElementById('ano').textContent = new Date().getFullYear();
-
-// ===== BOTÃO VOLTAR AO TOPO =====
 const botaoTopo = document.getElementById('topo');
 
-window.addEventListener('scroll', () => {
-    botaoTopo.classList.toggle('mostrar', window.scrollY > 400);
+window.addEventListener('scroll', function () {
+    botaoTopo.style.display = window.scrollY > 300 ? 'block' : 'none';
 });
 
-botaoTopo.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+botaoTopo.addEventListener('click', function () {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 });
-
-// ===== ANIMAÇÕES AO ROLAR A PÁGINA =====
-const elementos = document.querySelectorAll('.revelar');
-
-if ('IntersectionObserver' in window) {
-    const observador = new IntersectionObserver(entradas => {
-        entradas.forEach(entrada => {
-            if (entrada.isIntersecting) {
-                entrada.target.classList.add('visivel');
-                observador.unobserve(entrada.target);
-            }
-        });
-    }, { threshold: 0.12 });
-
-    elementos.forEach(elemento => observador.observe(elemento));
-} else {
-    elementos.forEach(elemento => elemento.classList.add('visivel'));
-}
 </script>
 
 </body>
