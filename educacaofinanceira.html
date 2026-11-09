@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Educação Financeira | Aprenda a Cuidar do Seu Dinheiro</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+:root {
+    --primary: #10b981;
+    --primary-dark: #059669;
+    --bg: #f4f7f6;
+    --card: #ffffff;
+    --text: #172b26;
+    --muted: #64746e;
+    --border: #e4ebe7;
+    --dark: #10251e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: .3s;
+}
+
+body.dark {
+    --bg: #101b17;
+    --card: #1a2923;
+    --text: #f1f7f3;
+    --muted: #a8b9b0;
+    --border: #304239;
+    --dark: #0b1511;
+}
+
+header {
+    background: var(--card);
+    padding: 18px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.logo i {
+    margin-right: 8px;
+}
+
+nav {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--primary);
+}
+
+.theme-btn, .menu-btn {
+    border: none;
+    background: var(--bg);
+    color: var(--text);
+    padding: 11px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.menu-btn {
+    display: none;
+}
+
+.hero {
+    background: linear-gradient(120deg, #073b2c, #087b53, #10b981);
+    color: white;
+    padding: 100px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    min-height: 450px;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.hero h1 {
+    font-size: clamp(35px, 5vw, 58px);
+    line-height: 1.12;
+    margin: 20px 0;
+}
+
+.hero p {
+    color: #d5f6e8;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+.hero-label {
+    background: #ffffff20;
+    padding: 9px 15px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.hero-button {
+    display: inline-block;
+    margin-top: 28px;
+    background: white;
+    color: #087b53;
+    padding: 15px 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 800;
+    transition: .3s;
+}
+
+.hero-button:hover {
+    transform: translateY(-4px);
+}
+
+.hero-icon {
+    font-size: 170px;
+    color: #ffffff25;
+}
+
+section {
+    padding: 75px 8%;
+    scroll-margin-top: 75px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title span {
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    margin: 12px 0;
+}
+
+.section-title p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 28px;
+    border-radius: 16px;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: var(--primary);
+}
+
+.card-icon {
+    width: 50px;
+    height: 50px;
+    background: #10b98118;
+    color: var(--primary);
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.example {
+    margin-top: 16px;
+    padding: 13px;
+    background: #10b98112;
+    border-radius: 9px;
+    color: var(--primary);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.highlight {
+    background: var(--dark);
+    color: white;
+}
+
+.highlight .section-title p {
+    color: #a8b9b0;
+}
+
+.budget {
+    max-width: 850px;
+    margin: auto;
+    background: var(--card);
+    color: var(--text);
+    padding: 35px;
+    border-radius: 18px;
+}
+
+.budget h3 {
+    margin-bottom: 20px;
+}
+
+.budget-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.field label {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.field input {
+    width: 100%;
+    padding: 13px;
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    outline: none;
+    font-family: inherit;
+}
+
+.field input:focus {
+    border-color: var(--primary);
+}
+
+.main-btn {
+    width: 100%;
+    padding: 15px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 9px;
+    margin-top: 22px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.main-btn:hover {
+    background: var(--primary-dark);
+}
+
+.result {
+    display: none;
+    background: #10b98115;
+    padding: 22px;
+    margin-top: 20px;
+    border-radius: 12px;
+    line-height: 2;
+}
+
+.result strong {
+    color: var(--primary);
+}
+
+.savings {
+    max-width: 650px;
+    margin: auto;
+    background: var(--card);
+    padding: 35px;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+}
+
+.savings .field {
+    margin-bottom: 17px;
+}
+
+.progress {
+    height: 13px;
+    background: var(--border);
+    border-radius: 30px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.progress-bar {
+    height: 100%;
+    background: var(--primary);
+    width: 0%;
+    transition: .5s;
+}
+
+.tips {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.tip {
+    background: var(--card);
+    padding: 22px;
+    border-radius: 13px;
+    border: 1px solid var(--border);
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.tip i {
+    color: var(--primary);
+    font-size: 22px;
+}
+
+.tip p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.quiz {
+    max-width: 700px;
+    margin: auto;
+    background: var(--card);
+    padding: 35px;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+}
+
+.quiz-question {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.option {
+    padding: 15px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    margin: 10px 0;
+    cursor: pointer;
+    font-size: 14px;
+    transition: .2s;
+}
+
+.option:hover {
+    border-color: var(--primary);
+    background: #10b98112;
+}
+
+.option.selected {
+    border-color: var(--primary);
+    background: #10b98120;
+}
+
+#quiz-feedback {
+    margin-top: 15px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.quiz-info {
+    display: flex;
+    justify-content: space-between;
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+footer {
+    background: #10251e;
+    color: white;
+    text-align: center;
+    padding: 35px 15px;
+}
+
+footer p {
+    color: #a8b9b0;
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+footer strong {
+    color: #10b981;
+}
+
+@media(max-width: 900px) {
+    nav {
+        gap: 12px;
+    }
+    nav a {
+        font-size: 11px;
+    }
+    .hero-icon {
+        font-size: 110px;
+    }
+}
+
+@media(max-width: 700px) {
+    header {
+        flex-wrap: wrap;
+    }
+    .menu-btn {
+        display: block;
+    }
+    nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 0 5px;
+    }
+    nav.active {
+        display: flex;
+    }
+    nav a {
+        font-size: 14px;
+    }
+    .hero {
+        padding: 70px 7%;
+    }
+    .hero-icon {
+        display: none;
+    }
+    .cards {
+        grid-template-columns: 1fr;
+    }
+    .budget-grid, .tips {
+        grid-template-columns: 1fr;
+    }
+    section {
+        padding: 55px 6%;
+    }
+    .budget, .quiz, .savings {
+        padding: 23px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <i class="fa-solid fa-wallet"></i> Finanças+
+    </div>
+
+    <button class="menu-btn" onclick="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <nav id="menu">
+        <a href="#inicio">Início</a>
+        <a href="#conceitos">Conceitos</a>
+        <a href="#orcamento">Orçamento</a>
+        <a href="#economia">Economia</a>
+        <a href="#dicas">Dicas</a>
+        <a href="#quiz">Quiz</a>
+    </nav>
+
+    <button class="theme-btn" onclick="toggleTheme()" title="Alterar tema">
+        <i class="fa-solid fa-moon" id="theme-icon"></i>
+    </button>
+</header>
+
+<!-- INÍCIO -->
+<div class="hero" id="inicio">
+    <div class="hero-content">
+        <span class="hero-label">📚 APRENDA A CONTROLAR SEU DINHEIRO</span>
+
+        <h1>Seu futuro financeiro começa com pequenas decisões.</h1>
+
+        <p>
+            Descubra como organizar seu dinheiro, economizar,
+            planejar seus objetivos e fazer escolhas financeiras
+            mais conscientes.
+        </p>
+
+        <a href="#conceitos" class="hero-button">
+            Começar a aprender <i class="fa-solid fa-arrow-right"></i>
+        </a>
+    </div>
+
+    <div class="hero-icon">
+        <i class="fa-solid fa-chart-pie"></i>
+    </div>
+</div>
+
+<!-- CONCEITOS -->
+<section id="conceitos">
+    <div class="section-title">
+        <span>CONHECIMENTO FINANCEIRO</span>
+        <h2>O que é educação financeira?</h2>
+        <p>
+            Aprender a administrar o dinheiro é importante
+            para conquistar objetivos e evitar problemas financeiros.
+        </p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="card-icon"><i class="fa-solid fa-wallet"></i></div>
+            <h3>Controle financeiro</h3>
+            <p>
+                É acompanhar quanto dinheiro você recebe,
+                quanto gasta e quanto consegue guardar.
+            </p>
+            <div class="example">
+                <strong>Exemplo:</strong> receber R$ 1.000 e anotar
+                todas as despesas do mês.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-icon"><i class="fa-solid fa-piggy-bank"></i></div>
+            <h3>Economia</h3>
+            <p>
+                É reservar uma parte do dinheiro para utilizar
+                no futuro ou realizar algum objetivo.
+            </p>
+            <div class="example">
+                <strong>Exemplo:</strong> guardar R$ 100 por mês
+                para comprar um computador.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-icon"><i class="fa-solid fa-bullseye"></i></div>
+            <h3>Planejamento</h3>
+            <p>
+                É estabelecer metas e organizar os gastos
+                para alcançar seus objetivos.
+            </p>
+            <div class="example">
+                <strong>Exemplo:</strong> planejar a compra de
+                uma bicicleta em seis meses.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+            <h3>Consumo consciente</h3>
+            <p>
+                É pensar antes de comprar e avaliar se
+                determinado produto realmente é necessário.
+            </p>
+            <div class="example">
+                <strong>Exemplo:</strong> comparar preços antes
+                de comprar um celular.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
+            <h3>Investimentos</h3>
+            <p>
+                São alternativas para aplicar dinheiro buscando
+                rendimento, considerando riscos e objetivos.
+            </p>
+            <div class="example">
+                <strong>Exemplo:</strong> conhecer o funcionamento
+                da poupança e do Tesouro Selic.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3>Reserva de emergência</h3>
+            <p>
+                É uma quantia guardada para ajudar a enfrentar
+                despesas inesperadas.
+            </p>
+            <div class="example">
+                <strong>Exemplo:</strong> reservar dinheiro para
+                uma manutenção urgente.
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ORÇAMENTO -->
+<section class="highlight" id="orcamento">
+    <div class="section-title">
+        <span>FERRAMENTA INTERATIVA</span>
+        <h2>Simulador de orçamento mensal</h2>
+        <p>
+            Descubra como ficaria seu orçamento com base
+            nos valores que você informar.
+        </p>
+    </div>
+
+    <div class="budget">
+        <h3><i class="fa-solid fa-calculator"></i> Organize seu dinheiro</h3>
+
+        <div class="budget-grid">
+
+            <div class="field">
+                <label>💰 Renda mensal (R$)</label>
+                <input type="number" id="renda" placeholder="Ex: 1500" min="0">
+            </div>
+
+            <div class="field">
+                <label>🏠 Gastos essenciais (R$)</label>
+                <input type="number" id="essenciais" placeholder="Ex: 500" min="0">
+            </div>
+
+            <div class="field">
+                <label>🎮 Gastos pessoais (R$)</label>
+                <input type="number" id="pessoais" placeholder="Ex: 200" min="0">
+            </div>
+
+            <div class="field">
+                <label>💳 Outras despesas (R$)</label>
+                <input type="number" id="outros" placeholder="Ex: 100" min="0">
+            </div>
+
+        </div>
+
+        <button class="main-btn" onclick="calcularOrcamento()">
+            <i class="fa-solid fa-chart-simple"></i> Calcular meu orçamento
+        </button>
+
+        <div class="result" id="resultado-orcamento"></div>
+    </div>
+</section>
+
+<!-- ECONOMIA -->
+<section id="economia">
+    <div class="section-title">
+        <span>ALCANCE SEUS OBJETIVOS</span>
+        <h2>Simulador de economia</h2>
+        <p>
+            Descubra quanto você pode acumular guardando
+            uma quantia todos os meses.
+        </p>
+    </div>
+
+    <div class="savings">
+
+        <div class="field">
+            <label>Quanto pretende guardar por mês?</label>
+            <input type="number" id="valor-mensal" placeholder="Ex: 100" min="0">
+        </div>
+
+        <div class="field">
+            <label>Durante quantos meses?</label>
+            <input type="number" id="meses" placeholder="Ex: 12" min="1">
+        </div>
+
+        <button class="main-btn" onclick="calcularEconomia()">
+            Calcular minha economia
+        </button>
+
+        <div class="result" id="resultado-economia">
+        </div>
+
+        <div class="progress">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <p style="font-size:12px;color:var(--muted)">
+            Simulação de valores acumulados, sem considerar rendimentos.
+        </p>
+    </div>
+</section>
+
+<!-- DICAS -->
+<section id="dicas">
+    <div class="section-title">
+        <span>HÁBITOS INTELIGENTES</span>
+        <h2>10 dicas para cuidar do seu dinheiro</h2>
+        <p>
+            Pequenas mudanças podem ajudar a melhorar
+            sua organização financeira.
+        </p>
+    </div>
+
+    <div class="tips">
+
+        <div class="tip">
+            <i class="fa-solid fa-check-circle"></i>
+            <p><strong>1. Anote seus gastos.</strong><br>
+            Registre todas as despesas para saber onde seu dinheiro está sendo utilizado.</p>
+        </div>
+
+        <div class="tip">
+            <i class="fa-solid fa-check-circle"></i>
+            <p><strong>2. Evite compras por impulso.</strong><br>
+            Pense antes de comprar e avalie se realmente precisa do produto.</p>
+        </div>
+
+        <div class="tip">
+            <i class="fa-solid fa-check-circle"></i>
+            <p><strong>3. Compare preços.</strong><br>
+            Pesquise diferentes lojas antes de realizar uma compra.</p>
+        </div>
+
+        <div class="tip">
+            <i class="fa-solid fa-check-circle"></i>
+            <p><strong>4. Estabeleça metas.</strong><br>
+            Tenha objetivos claros para organizar sua economia.</p>
+        </div>
+
+        <div class="tip">
+            <i class="fa-solid fa-check-circle"></i>
+            <p><strong>5. Guarde uma parte da renda.</strong><br>
+            Sempre que possível, reserve uma quantia para o futuro.</p>
+        </div>
+
+        <div class="tip">
+            <i class="fa-solid fa-check-circle"></i>
+            <p><strong>6. Cuidado com o cartão.</strong><br>
+            Acompanhe a fatura e evite assumir despesas que não consegue pagar.</p>
+        </div>
+
+        <div class="tip">
+            <i class="fa-solid fa-check-circle"></i>
+            <p><strong>7. Evite desperdícios.</strong><br>
+            Economize água, energia e outros recursos.</p>
+        </div>
+
+        <div class="tip">
+            <i class="fa-solid fa-check-circle"></i>
+            <p><strong>8. Estude sobre finanças.</strong><br>
+            Aprenda sobre orçamento, juros, crédito e investimentos.</p>
+        </div>
+
+        <div class="tip">
+            <i class="fa-solid fa-check-circle"></i>
+            <p><strong>9. Planeje grandes compras.</strong><br>
+            Organize seu orçamento antes de adquirir produtos caros.</p>
+        </div>
+
+        <div class="tip">
+            <i class="fa-solid fa-check-circle"></i>
+            <p><strong>10. Tenha paciência.</strong><br>
+            Construir uma boa organização financeira exige disciplina e tempo.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- QUIZ -->
+<section class="highlight" id="quiz">
+    <div class="section-title">
+        <span>TESTE SEUS CONHECIMENTOS</span>
+        <h2>Quiz de educação financeira</h2>
+        <p>
+            Responda às perguntas e descubra quanto
+            você aprendeu sobre educação financeira!
+        </p>
+    </div>
+
+    <div class="quiz">
+
+        <div class="quiz-info">
+            <span id="quiz-progress">Pergunta 1 de 5</span>
+            <span id="quiz-score">Acertos: 0</span>
+        </div>
+
+        <div class="quiz-question" id="question">
+            O que significa economizar dinheiro?
+        </div>
+
+        <div id="options"></div>
+
+        <div id="quiz-feedback"></div>
+
+        <button class="main-btn" id="next-btn" onclick="nextQuestion()" style="display:none">
+            Próxima pergunta <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+        <button class="main-btn" id="restart-btn" onclick="restartQuiz()" style="display:none">
+            <i class="fa-solid fa-rotate"></i> Refazer quiz
+        </button>
+
+    </div>
+</section>
+
+<footer>
+    <div class="logo">
+        <i class="fa-solid fa-wallet"></i> Finanças+
+    </div>
+
+    <p>
+        Educação financeira: conhecimento para construir
+        um futuro melhor.
+    </p>
+
+    <p>
+        Desenvolvido para fins educativos.
+    </p>
+
+    <p>
+        © 2026 <strong>Finanças+</strong> — Todos os direitos reservados.
+    </p>
+</footer>
+
+<script>
+
+// MENU MOBILE
+function toggleMenu() {
+    document.getElementById("menu").classList.toggle("active");
+}
+
+// MODO ESCURO
+function toggleTheme() {
+    document.body.classList.toggle("dark");
+
+    const icon = document.getElementById("theme-icon");
+
+    icon.className = document.body.classList.contains("dark")
+        ? "fa-solid fa-sun"
+        : "fa-solid fa-moon";
+}
+
+// SIMULADOR DE ORÇAMENTO
+function calcularOrcamento() {
+
+    const renda = Number(document.getElementById("renda").value);
+    const essenciais = Number(document.getElementById("essenciais").value);
+    const pessoais = Number(document.getElementById("pessoais").value);
+    const outros = Number(document.getElementById("outros").value);
+
+    const valores = [renda, essenciais, pessoais, outros];
+
+    if (valores.some(v => !Number.isFinite(v) || v < 0) || renda <= 0) {
+        alert("Informe uma renda válida e valores de despesas iguais ou maiores que zero.");
+        return;
+    }
+
+    const total = essenciais + pessoais + outros;
+    const saldo = renda - total;
+
+    const formatar = valor => valor.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+    });
+
+    let mensagem = saldo >= 0
+        ? "Parabéns! Seu orçamento está dentro da renda informada."
+        : "Atenção! Suas despesas ultrapassaram sua renda.";
+
+    const resultado = document.getElementById("resultado-orcamento");
+
+    resultado.style.display = "block";
+
+    resultado.innerHTML = `
+        <strong>Resultado do seu orçamento:</strong><br>
+        Renda: ${formatar(renda)}<br>
+        Total de despesas: ${formatar(total)}<br>
+        <strong>Saldo final: ${formatar(saldo)}</strong><br><br>
+        ${mensagem}
+    `;
+}
+
+// SIMULADOR DE ECONOMIA
+function calcularEconomia() {
+
+    const mensal = Number(document.getElementById("valor-mensal").value);
+    const meses = Number(document.getElementById("meses").value);
+
+    if (!Number.isFinite(mensal) || !Number.isInteger(meses) ||
+        mensal <= 0 || meses <= 0) {
+        alert("Informe valores válidos para a economia e os meses.");
+        return;
+    }
+
+    if (meses > 1200) {
+        alert("Informe um período de até 1200 meses.");
+        return;
+    }
+
+    const total = mensal * meses;
+
+    const formatar = valor => valor.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+    });
+
+    const resultado = document.getElementById("resultado-economia");
+
+    resultado.style.display = "block";
+
+    resultado.innerHTML = `
+        <strong>Seu planejamento:</strong><br>
+        Valor mensal: ${formatar(mensal)}<br>
+        Período: ${meses} meses<br><br>
+        <strong>Você poderá acumular ${formatar(total)}!</strong>
+    `;
+
+    const progresso = Math.min(meses / 12 * 100, 100);
+
+    document.getElementById("progress-bar").style.width = progresso + "%";
+}
+
+// QUIZ
+const questions = [
+    {
+        question: "O que significa economizar dinheiro?",
+        options: [
+            "Gastar tudo imediatamente",
+            "Guardar uma parte do dinheiro",
+            "Comprar tudo que deseja"
+        ],
+        answer: 1,
+        explanation: "Economizar é reservar parte do dinheiro para objetivos futuros."
+    },
+    {
+        question: "O que é um orçamento financeiro?",
+        options: [
+            "Uma lista de jogos",
+            "Um planejamento de receitas e despesas",
+            "Uma forma de gastar sem limites"
+        ],
+        answer: 1,
+        explanation: "O orçamento ajuda a organizar o dinheiro que entra e sai."
+    },
+    {
+        question: "Qual atitude representa consumo consciente?",
+        options: [
+            "Comprar por impulso",
+            "Ignorar os preços",
+            "Comparar preços antes de comprar"
+        ],
+        answer: 2,
+        explanation: "Comparar preços ajuda a fazer escolhas mais conscientes."
+    },
+    {
+        question: "Para que serve uma reserva de emergência?",
+        options: [
+            "Para despesas inesperadas",
+            "Para comprar produtos desnecessários",
+            "Para gastar todo mês"
+        ],
+        answer: 0,
+        explanation: "A reserva ajuda a enfrentar imprevistos financeiros."
+    },
+    {
+        question: "O que devemos fazer antes de uma compra grande?",
+        options: [
+            "Comprar imediatamente",
+            "Planejar e verificar o orçamento",
+            "Ignorar as despesas"
+        ],
+        answer: 1,
+        explanation: "Planejar ajuda a evitar problemas financeiros."
+    }
+];
+
+let currentQuestion = 0;
+let score = 0;
+let answered = false;
+
+function loadQuestion() {
+
+    answered = false;
+
+    const q = questions[currentQuestion];
+
+    document.getElementById("question").textContent = q.question;
+
+    document.getElementById("quiz-progress").textContent =
+        `Pergunta ${currentQuestion + 1} de ${questions.length}`;
+
+    document.getElementById("quiz-score").textContent =
+        `Acertos: ${score}`;
+
+    document.getElementById("quiz-feedback").textContent = "";
+
+    document.getElementById("next-btn").style.display = "none";
+    document.getElementById("restart-btn").style.display = "none";
+
+    const options = document.getElementById("options");
+
+    options.innerHTML = "";
+
+    q.options.forEach((option, index) => {
+
+        const div = document.createElement("div");
+
+        div.className = "option";
+        div.textContent = option;
+
+        div.onclick = () => selectAnswer(index, div);
+
+        options.appendChild(div);
+    });
+}
+
+function selectAnswer(index, element) {
+
+    if (answered) return;
+
+    answered = true;
+
+    const q = questions[currentQuestion];
+
+    if (index === q.answer) {
+        score++;
+        element.style.borderColor = "#10b981";
+        element.style.background = "#10b98120";
+
+        document.getElementById("quiz-feedback").textContent =
+            "✓ Resposta correta! " + q.explanation;
+
+    } else {
+
+        element.style.borderColor = "#ef4444";
+        element.style.background = "#ef444420";
+
+        document.getElementById("quiz-feedback").textContent =
+            "✗ Resposta incorreta. " + q.explanation;
+    }
+
+    document.getElementById("quiz-score").textContent =
+        `Acertos: ${score}`;
+
+    document.getElementById("next-btn").style.display = "block";
+
+    if (currentQuestion === questions.length - 1) {
+        document.getElementById("next-btn").textContent =
+            "Ver resultado";
+    }
+
+}
+
+function nextQuestion() {
+
+    currentQuestion++;
+
+    if (currentQuestion < questions.length) {
+
+        document.getElementById("next-btn").textContent =
+            "Próxima pergunta";
+
+        loadQuestion();
+
+    } else {
+
+        document.getElementById("question").textContent =
+            "🎉 Quiz finalizado!";
+
+        document.getElementById("options").innerHTML = "";
+
+        document.getElementById("quiz-feedback").textContent =
+            `Você acertou ${score} de ${questions.length} perguntas!`;
+
+        document.getElementById("quiz-progress").textContent =
+            "Resultado final";
+
+        document.getElementById("next-btn").style.display = "none";
+        document.getElementById("restart-btn").style.display = "block";
+
+    }
+}
+
+function restartQuiz() {
+
+    currentQuestion = 0;
+    score = 0;
+
+    loadQuestion();
+}
+
+// INICIAR QUIZ
+loadQuestion();
+
+</script>
+
+</body>
+</html>
