@@ -1,0 +1,577 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana da Educação para a Vida | BNCC</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f4f8fc;
+    color: #263445;
+}
+
+header {
+    background: #123c69;
+    color: white;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 3px 15px #0002;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.logo span {
+    color: #69dfaa;
+}
+
+nav {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: #69dfaa;
+}
+
+.hero {
+    min-height: 520px;
+    background: linear-gradient(120deg, #103968ed, #176e77df),
+    url('https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1600') center/cover;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 70px 10%;
+}
+
+.hero-content {
+    max-width: 750px;
+}
+
+.tag {
+    background: #ffffff22;
+    border: 1px solid #ffffff55;
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(35px, 5vw, 58px);
+    line-height: 1.15;
+    margin-bottom: 22px;
+}
+
+.hero h1 span {
+    color: #75e6b0;
+}
+
+.hero p {
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 620px;
+    color: #e6f3fa;
+}
+
+.btn {
+    display: inline-block;
+    background: #65dca5;
+    color: #103968;
+    padding: 13px 25px;
+    border-radius: 8px;
+    margin-top: 25px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    background: white;
+}
+
+section {
+    padding: 75px 9%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title h2 {
+    color: #123c69;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #718096;
+    font-size: 14px;
+}
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.about h2 {
+    color: #123c69;
+    font-size: 30px;
+    margin-bottom: 18px;
+}
+
+.about p {
+    line-height: 1.9;
+    color: #586779;
+    margin-bottom: 15px;
+}
+
+.about-image {
+    width: 100%;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px #0002;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: white;
+    padding: 28px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px #163c6510;
+    transition: .3s;
+    border-bottom: 4px solid #60cfa0;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px #163c6520;
+}
+
+.card .icon {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    color: #123c69;
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+.card p {
+    color: #718096;
+    line-height: 1.7;
+    font-size: 13px;
+}
+
+.bncc {
+    background: #e9f4f5;
+}
+
+.bncc-box {
+    background: white;
+    padding: 35px;
+    border-radius: 16px;
+    max-width: 950px;
+    margin: auto;
+    line-height: 1.9;
+    box-shadow: 0 5px 20px #0000000c;
+}
+
+.bncc-box h3 {
+    color: #137b73;
+    margin-bottom: 15px;
+}
+
+.skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.skill {
+    background: #f0f8f7;
+    border-radius: 10px;
+    padding: 18px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #176e68;
+}
+
+.activities {
+    background: #123c69;
+    color: white;
+}
+
+.activities .section-title h2,
+.activities .section-title p {
+    color: white;
+}
+
+.activities .card {
+    color: #263445;
+}
+
+.activities .card h3 {
+    color: #123c69;
+}
+
+.quote {
+    background: linear-gradient(120deg, #137b73, #123c69);
+    color: white;
+    text-align: center;
+    padding: 65px 15%;
+}
+
+.quote h2 {
+    font-size: 27px;
+    margin-bottom: 15px;
+}
+
+.quote p {
+    line-height: 1.8;
+    color: #e3f6f1;
+}
+
+footer {
+    background: #0c2948;
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+    font-size: 13px;
+    line-height: 2;
+}
+
+.top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border: none;
+    background: #137b73;
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+    display: none;
+}
+
+@media(max-width: 750px) {
+    header {
+        justify-content: center;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 55px 6%;
+    }
+
+    .hero {
+        min-height: 480px;
+        padding: 60px 7%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">EDUCAÇÃO <span>PARA A VIDA</span></div>
+
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#bncc">BNCC</a>
+        <a href="#temas">Temas</a>
+        <a href="#atividades">Atividades</a>
+    </nav>
+</header>
+
+<!-- INÍCIO -->
+<div class="hero" id="inicio">
+    <div class="hero-content">
+        <div class="tag">📚 CONHECIMENTO • CIDADANIA • FUTURO</div>
+
+        <h1>Semana da <span>Educação para a Vida</span></h1>
+
+        <p>
+            Aprender vai muito além da sala de aula.
+            É desenvolver valores, respeitar as diferenças,
+            cuidar da saúde e construir um futuro melhor
+            para todos.
+        </p>
+
+        <a href="#sobre" class="btn">Conheça o projeto →</a>
+    </div>
+</div>
+
+<!-- SOBRE -->
+<section id="sobre">
+    <div class="about">
+
+        <div>
+            <h2>O que é a Semana da Educação para a Vida?</h2>
+
+            <p>
+                A Semana da Educação para a Vida é uma oportunidade
+                de trabalhar assuntos importantes para a formação
+                dos estudantes, incentivando o aprendizado de
+                conhecimentos que podem ser utilizados no dia a dia.
+            </p>
+
+            <p>
+                Durante essa semana, a escola pode desenvolver
+                palestras, debates, apresentações e atividades
+                sobre cidadania, saúde, meio ambiente, respeito,
+                segurança e responsabilidade.
+            </p>
+
+            <p>
+                O objetivo é preparar os alunos não apenas para
+                o mercado de trabalho, mas também para a vida
+                em sociedade.
+            </p>
+
+        </div>
+
+        <img class="about-image"
+        src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=900"
+        alt="Estudantes aprendendo em sala de aula">
+    </div>
+</section>
+
+<!-- TEMAS -->
+<section id="temas">
+    <div class="section-title">
+        <h2>Temas importantes para a vida</h2>
+        <p>Conhecimentos que ajudam a formar cidadãos conscientes.</p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">🤝</div>
+            <h3>Respeito e cidadania</h3>
+            <p>Aprender a respeitar as diferenças, os direitos e os deveres de cada pessoa.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">❤️</div>
+            <h3>Saúde e bem-estar</h3>
+            <p>Entender a importância dos cuidados com a saúde física e emocional.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🌳</div>
+            <h3>Meio ambiente</h3>
+            <p>Preservar a natureza, economizar recursos e desenvolver atitudes sustentáveis.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">💰</div>
+            <h3>Educação financeira</h3>
+            <p>Aprender a economizar, organizar o dinheiro e fazer escolhas conscientes.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🚦</div>
+            <h3>Educação no trânsito</h3>
+            <p>Conhecer as regras de trânsito e agir com responsabilidade e segurança.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">💻</div>
+            <h3>Educação digital</h3>
+            <p>Utilizar a tecnologia com responsabilidade, segurança e respeito.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- BNCC -->
+<section class="bncc" id="bncc">
+
+    <div class="section-title">
+        <h2>A Educação para a Vida e a BNCC</h2>
+        <p>Uma formação que vai além dos conteúdos escolares.</p>
+    </div>
+
+    <div class="bncc-box">
+
+        <h3>📖 O que é a BNCC?</h3>
+
+        <p>
+            A Base Nacional Comum Curricular (BNCC) é um documento
+            que define as aprendizagens essenciais que todos os
+            estudantes devem desenvolver durante a Educação Básica.
+        </p>
+
+        <p>
+            A Educação para a Vida está relacionada às competências
+            gerais da BNCC, que valorizam o conhecimento, o pensamento
+            crítico, a comunicação, a empatia, a responsabilidade
+            e a cidadania.
+        </p>
+
+        <br>
+
+        <h3>As 10 competências gerais da BNCC</h3>
+
+        <div class="skills">
+            <div class="skill">📚 1. Conhecimento</div>
+            <div class="skill">🔍 2. Pensamento científico</div>
+            <div class="skill">🎨 3. Repertório cultural</div>
+            <div class="skill">💬 4. Comunicação</div>
+            <div class="skill">💻 5. Cultura digital</div>
+            <div class="skill">💼 6. Trabalho e projeto de vida</div>
+            <div class="skill">📊 7. Argumentação</div>
+            <div class="skill">❤️ 8. Autoconhecimento</div>
+            <div class="skill">🤝 9. Empatia e cooperação</div>
+            <div class="skill">🌎 10. Responsabilidade e cidadania</div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ATIVIDADES -->
+<section class="activities" id="atividades">
+
+    <div class="section-title">
+        <h2>Atividades que transformam</h2>
+        <p>Aprender também é participar e colocar o conhecimento em prática.</p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">🎤</div>
+            <h3>Palestras e debates</h3>
+            <p>Conversar sobre assuntos importantes para a sociedade e compartilhar opiniões.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🎭</div>
+            <h3>Apresentações</h3>
+            <p>Desenvolver apresentações, peças e trabalhos sobre temas educativos.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🌱</div>
+            <h3>Ações ambientais</h3>
+            <p>Realizar campanhas de conscientização e preservação do meio ambiente.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🧠</div>
+            <h3>Dinâmicas educativas</h3>
+            <p>Participar de jogos e atividades que estimulam o pensamento e a criatividade.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- MENSAGEM -->
+<div class="quote">
+    <h2>Educar para a vida é transformar o futuro! 🌎</h2>
+
+    <p>
+        A educação não acontece somente dentro da escola.
+        Ela está presente nas nossas escolhas, atitudes,
+        relacionamentos e na maneira como contribuímos
+        para construir uma sociedade melhor.
+    </p>
+</div>
+
+<footer>
+    <h3>📚 SEMANA DA EDUCAÇÃO PARA A VIDA</h3>
+    <p>Educação, respeito e cidadania para um futuro melhor.</p>
+    <p>Projeto educativo relacionado às competências gerais da BNCC.</p>
+    <p>© 2026 - Todos os direitos reservados.</p>
+</footer>
+
+<button class="top" id="topo" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// Botão para voltar ao topo
+const botaoTopo = document.getElementById("topo");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+        botaoTopo.style.display = "block";
+    } else {
+        botaoTopo.style.display = "none";
+    }
+});
+
+// Animação de entrada dos cartões
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+        }
+    });
+}, {threshold: 0.1});
+
+document.querySelectorAll(".card").forEach(card => {
+    card.style.opacity = "0";
+    card.style.transform = "translateY(25px)";
+    card.style.transition = "all .6s ease";
+    observer.observe(card);
+});
+</script>
+
+</body>
+</html>
