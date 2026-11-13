@@ -1,0 +1,630 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consciência Negra | 20 de Novembro</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #faf8f3;
+    color: #29231e;
+}
+
+header {
+    background: #21170f;
+    color: white;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 15px #0003;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.logo span {
+    color: #e8a53c;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 13px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: #e8a53c;
+}
+
+.hero {
+    min-height: 550px;
+    background:
+    linear-gradient(90deg, #160e08ed, #2a1708a8),
+    url('https://images.unsplash.com/photo-1531058020387-3be344556be6?w=1600')
+    center/cover;
+    display: flex;
+    align-items: center;
+    padding: 70px 10%;
+    color: white;
+}
+
+.hero-content {
+    max-width: 750px;
+}
+
+.tag {
+    background: #e8a53c;
+    color: #21170f;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 65px);
+    line-height: 1.15;
+    margin-bottom: 22px;
+}
+
+.hero h1 span {
+    color: #e8a53c;
+}
+
+.hero p {
+    color: #eee2d5;
+    line-height: 1.9;
+    font-size: 16px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 28px;
+    background: #e8a53c;
+    color: #21170f;
+    padding: 14px 25px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: white;
+    transform: translateY(-4px);
+}
+
+section {
+    padding: 75px 9%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title h2 {
+    color: #633617;
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.section-title p {
+    color: #81766b;
+    font-size: 14px;
+}
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 45px;
+    align-items: center;
+}
+
+.about h2 {
+    color: #633617;
+    font-size: 30px;
+    margin-bottom: 18px;
+}
+
+.about p {
+    color: #685d52;
+    line-height: 1.9;
+    margin-bottom: 15px;
+}
+
+.about img {
+    width: 100%;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px #0002;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: white;
+    padding: 28px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px #0000000c;
+    border-bottom: 4px solid #d99a38;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px #0002;
+}
+
+.icon {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    color: #633617;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: #766b61;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.history {
+    background: #f0e6d9;
+}
+
+.history-box {
+    max-width: 950px;
+    margin: auto;
+    background: white;
+    padding: 35px;
+    border-radius: 16px;
+    line-height: 1.9;
+    box-shadow: 0 5px 20px #0001;
+}
+
+.history-box h3 {
+    color: #a05b20;
+    margin: 20px 0 10px;
+}
+
+.history-box p {
+    color: #685d52;
+}
+
+.zumbi {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    align-items: center;
+}
+
+.zumbi img {
+    width: 100%;
+    border-radius: 16px;
+}
+
+.zumbi h2 {
+    color: #633617;
+    margin-bottom: 15px;
+}
+
+.zumbi p {
+    line-height: 1.9;
+    color: #685d52;
+    margin-bottom: 12px;
+}
+
+.culture {
+    background: #24180f;
+    color: white;
+}
+
+.culture .section-title h2,
+.culture .section-title p {
+    color: white;
+}
+
+.culture .card {
+    color: #29231e;
+}
+
+.message {
+    background: linear-gradient(120deg, #633617, #a45a21);
+    color: white;
+    text-align: center;
+    padding: 75px 12%;
+}
+
+.message h2 {
+    font-size: 30px;
+    margin-bottom: 18px;
+}
+
+.message p {
+    line-height: 1.9;
+    color: #f8e9d6;
+}
+
+footer {
+    background: #21170f;
+    color: white;
+    text-align: center;
+    padding: 35px 15px;
+    font-size: 13px;
+    line-height: 2;
+}
+
+.top {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background: #a45a21;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    display: none;
+}
+
+@media(max-width: 750px) {
+    header {
+        justify-content: center;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .about, .zumbi {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 55px 6%;
+    }
+
+    .hero {
+        padding: 60px 7%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">CONSCIÊNCIA <span>NEGRA ✊🏿</span></div>
+
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#historia">História</a>
+        <a href="#zumbi">Zumbi</a>
+        <a href="#cultura">Cultura</a>
+        <a href="#racismo">Igualdade</a>
+    </nav>
+</header>
+
+<!-- INÍCIO -->
+<div class="hero" id="inicio">
+    <div class="hero-content">
+
+        <div class="tag">20 DE NOVEMBRO • DIA DA CONSCIÊNCIA NEGRA</div>
+
+        <h1>Consciência Negra: <span>História, Respeito e Igualdade</span></h1>
+
+        <p>
+            Conhecer a história é reconhecer a luta, valorizar
+            a cultura e construir uma sociedade onde todas as
+            pessoas tenham os mesmos direitos e oportunidades.
+        </p>
+
+        <a href="#sobre" class="btn">Conheça essa história →</a>
+
+    </div>
+</div>
+
+<!-- SOBRE -->
+<section id="sobre">
+
+    <div class="about">
+
+        <div>
+            <h2>O que é a Consciência Negra?</h2>
+
+            <p>
+                A Consciência Negra representa a valorização da
+                história, da cultura, da identidade e das
+                contribuições da população negra para a sociedade.
+            </p>
+
+            <p>
+                O dia 20 de novembro é uma data de reflexão sobre
+                a luta contra o racismo, a desigualdade e a
+                discriminação racial.
+            </p>
+
+            <p>
+                Também é um momento de reconhecer a importância
+                dos povos africanos e de seus descendentes na
+                construção da história e da cultura brasileira.
+            </p>
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=900"
+        alt="Grupo de pessoas reunidas">
+
+    </div>
+
+</section>
+
+<!-- HISTÓRIA -->
+<section class="history" id="historia">
+
+    <div class="section-title">
+        <h2>Um pouco da nossa história</h2>
+        <p>Conhecer o passado é essencial para transformar o futuro.</p>
+    </div>
+
+    <div class="history-box">
+
+        <h3>📜 A história da população negra no Brasil</h3>
+
+        <p>
+            Durante mais de três séculos, milhões de africanos
+            foram trazidos à força para o Brasil e submetidos
+            à escravização. Essas pessoas enfrentaram violência,
+            exploração e perda de direitos.
+        </p>
+
+        <p>
+            Mesmo diante dessas dificuldades, a população negra
+            resistiu de diversas formas, preservando tradições,
+            conhecimentos, religiões, músicas e costumes.
+        </p>
+
+        <h3>⚖️ A abolição da escravidão</h3>
+
+        <p>
+            Em 13 de maio de 1888, a Lei Áurea foi assinada,
+            abolindo legalmente a escravidão no Brasil.
+            Entretanto, a liberdade não foi acompanhada de
+            políticas suficientes de inclusão social,
+            deixando desigualdades que ainda precisam ser
+            enfrentadas.
+        </p>
+
+        <h3>📅 Por que 20 de novembro?</h3>
+
+        <p>
+            A data foi escolhida em homenagem a Zumbi dos Palmares,
+            líder do Quilombo dos Palmares, morto em 20 de novembro
+            de 1695. Ele se tornou um símbolo da resistência
+            contra a escravidão.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ZUMBI -->
+<section id="zumbi">
+
+    <div class="zumbi">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Zumbi_dos_Palmares.jpg/640px-Zumbi_dos_Palmares.jpg"
+        alt="Representação artística de Zumbi dos Palmares">
+
+        <div>
+            <h2>✊🏿 Zumbi dos Palmares</h2>
+
+            <p>
+                Zumbi dos Palmares foi uma das principais
+                lideranças da resistência negra no Brasil
+                durante o período colonial.
+            </p>
+
+            <p>
+                Ele esteve ligado ao Quilombo dos Palmares,
+                uma comunidade formada principalmente por
+                pessoas negras que buscavam liberdade e
+                construíam formas próprias de organização.
+            </p>
+
+            <p>
+                Sua história representa a luta por liberdade,
+                dignidade e resistência. Por isso, o dia de
+                sua morte foi escolhido como referência para
+                o Dia da Consciência Negra.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CULTURA -->
+<section class="culture" id="cultura">
+
+    <div class="section-title">
+        <h2>A riqueza da cultura afro-brasileira</h2>
+        <p>Uma herança presente em diferentes aspectos da nossa sociedade.</p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">🥁</div>
+            <h3>Música</h3>
+            <p>O samba, o maracatu e outros ritmos possuem importantes influências africanas.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">💃</div>
+            <h3>Dança</h3>
+            <p>A capoeira e outras manifestações culturais representam história e resistência.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🍲</div>
+            <h3>Gastronomia</h3>
+            <p>Pratos como acarajé, vatapá e caruru fazem parte da influência africana na culinária brasileira.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🎨</div>
+            <h3>Arte</h3>
+            <p>A arte afro-brasileira expressa identidade, criatividade, memória e tradição.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">📚</div>
+            <h3>Literatura</h3>
+            <p>Autores negros contribuem para a literatura com histórias, conhecimentos e diferentes perspectivas.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🌍</div>
+            <h3>Religiões e tradições</h3>
+            <p>As tradições de origem africana fazem parte da diversidade cultural e religiosa do Brasil.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- RACISMO -->
+<section id="racismo">
+
+    <div class="section-title">
+        <h2>Combater o racismo é responsabilidade de todos</h2>
+        <p>Respeito e igualdade devem estar presentes todos os dias.</p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">🚫</div>
+            <h3>Combater o preconceito</h3>
+            <p>Não aceitar atitudes discriminatórias e racistas em nenhum ambiente.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🤝</div>
+            <h3>Respeitar as diferenças</h3>
+            <p>Reconhecer que todas as pessoas merecem respeito e dignidade.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">📖</div>
+            <h3>Valorizar a história</h3>
+            <p>Estudar a história africana e afro-brasileira e reconhecer suas contribuições.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">⚖️</div>
+            <h3>Defender a igualdade</h3>
+            <p>Promover oportunidades e direitos iguais para todas as pessoas.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- MENSAGEM -->
+<div class="message">
+    <h2>Uma sociedade melhor começa com o respeito! ✊🏿</h2>
+
+    <p>
+        A Consciência Negra não deve ser lembrada apenas
+        em novembro. Valorizar a diversidade, combater o
+        racismo e reconhecer a história da população negra
+        são atitudes que devem acontecer durante todo o ano.
+    </p>
+</div>
+
+<footer>
+
+    <h3>✊🏿 DIA DA CONSCIÊNCIA NEGRA</h3>
+
+    <p>20 de Novembro — História, Cultura, Respeito e Igualdade.</p>
+
+    <p>Valorizar a história é construir um futuro melhor.</p>
+
+    <p>© 2026 - Projeto educativo</p>
+
+</footer>
+
+<button class="top" id="topo"
+onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+
+// Botão voltar ao topo
+const topo = document.getElementById("topo");
+
+window.addEventListener("scroll", () => {
+    topo.style.display = window.scrollY > 300 ? "block" : "none";
+});
+
+// Animação dos cartões
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+        }
+    });
+}, {threshold: 0.1});
+
+document.querySelectorAll(".card").forEach(card => {
+    card.style.opacity = "0";
+    card.style.transform = "translateY(25px)";
+    card.style.transition = "all .6s ease";
+    observer.observe(card);
+});
+
+</script>
+
+</body>
+</html>
